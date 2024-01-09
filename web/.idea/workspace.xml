@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3d26d81d-4c4c-48c3-a54f-fedbe14305a3" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/../server/file_server/upload/files/417d0e7e-fd8d-4d70-85fc-79cc6e4c1368.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/frontend/mid_record.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/编译与安装.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/swaDictail.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/swaRecord.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/swa-log.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/config.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/file_server/upload/files/e74b006f-cff7-43db-a69a-9ed50da38436.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/file_server/upload/files/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/cache.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/handler_config.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/handler_config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/handler_file_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/handler_file_upload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/handler_swa_api.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/handler_swa_api.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/handler_swa_base.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/handler_swa_base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/handler_swa_blacklist.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/handler_swa_casbin.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/handler_swa_casbin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/handler_swa_dict.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/handler_swa_dict.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/handler_swa_dictail.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/handler_swa_dictail.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/handler_swa_menu.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/handler_swa_menu.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/handler_swa_record.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/handler_swa_record.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/handler_swa_role.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/handler_swa_role.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/handler_swa_state.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/handler_swa_state.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/handler_swa_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/handler_swa_user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/handler_swa_jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/local.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/mod_gin.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/public.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/redis.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/upload.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/weaver_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/frontend/weaver_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_file/init_file.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_file/init_file.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_file/mod_base.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_file/mod_base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_file/updownload_mod.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_file/updownload_mod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_file/updownload_srvc.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_file/updownload_srvc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_file/weaver_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_file/weaver_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/api_mod.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/api_mod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/api_srvc.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/api_srvc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/casbin_mod.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/casbin_mod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/casbin_srvc.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/casbin_srvc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/dict_mod.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/dict_mod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/dict_srvc.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/dict_srvc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/dictail_mod.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/dictail_mod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/dictail_srvc.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/dictail_srvc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/init_swa.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/init_swa.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/menu_mod.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/menu_mod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/menu_srvc.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/menu_srvc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/mod_base.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/mod_base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/record_mod.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/record_mod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/record_srvc.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/record_srvc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/role_mod.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/role_mod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/role_srvc.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/role_srvc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/state_mod.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/state_mod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/sys_authority_btn.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/sys_authority_btn.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/sys_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/sys_user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/user_mod.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/user_mod.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/user_srv.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/user_srv.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/service/service_swa/weaver_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/service/service_swa/weaver_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/utils/clamis.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/utils/clamis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/utils/request/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/utils/request/common.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/utils/verify.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/utils/verify.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/authority.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/swaRole.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/authorityBtn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/roleBtn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/casbin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/casbin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/fileUploadAndDownload.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/swa_file_upload.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/sysDictionary.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/swaDict.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/sysDictionaryDetail.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/sysOperationRecord.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/chooseImg/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chooseImg/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/upload/common.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/upload/common.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/upload/image.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/upload/image.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/directive/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/directive/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/permission.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/permission.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pinia/modules/dictionary.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pinia/modules/dictionary.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pinia/modules/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pinia/modules/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/format.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/format.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/dashboard/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/dashboard/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/superAdmin/api/api.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/superAdmin/api/api.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/superAdmin/authority/authority.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/superAdmin/role/role.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/superAdmin/authority/components/apis.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/superAdmin/role/components/apis.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/superAdmin/authority/components/datas.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/superAdmin/role/components/datas.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/superAdmin/authority/components/menus.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/superAdmin/role/components/menus.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/superAdmin/dictionary/sysDictionary.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/superAdmin/dictionary/dictionary.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/superAdmin/dictionary/sysDictionaryDetail.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/superAdmin/dictionary/dictionaryDetail.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/superAdmin/menu/menu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/superAdmin/menu/menu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/superAdmin/operation/sysOperationRecord.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/superAdmin/operation/record.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/superAdmin/user/user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/superAdmin/user/user.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/swa/xidwHeader/LayoutHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swa/xidwHeader/LayoutHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/swa/xidwHistory/LayoutHistory.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/swa/xidwHistory/LayoutHistory.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/system/state.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/system/state.vue" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2QCXtcyqTTiEG00r5fhFF4h6KhU" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/swa/swa-master/web/src/assets&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Vue 模板&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\tools\\WebStorm 2022.3.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\swa\swa-master\web\src\assets" />
+      <recent name="C:\swa\swa-master\web" />
+      <recent name="C:\xidw\xidw-go\xidw-master\web\src\api\meta" />
+      <recent name="C:\xidw\xidw-go\xidw-master\web\src\view\meta" />
+      <recent name="C:\xidw\xidw-go\xidw-master\web" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xidw\xidw-go\xidw-master\web\docker部署" />
+      <recent name="C:\xidw\xidw-go\xidw-master\web\src\styles" />
+      <recent name="C:\xidw\xidw-go\xidw-master\web\src\components" />
+      <recent name="C:\xidw\xidw-go\xidw-master\web\src\view\xidw\xidwHistory" />
+      <recent name="C:\xidw\xidw-go\xidw-master\web\src\view\xidw\xidwSider" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="serve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.serve" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="3d26d81d-4c4c-48c3-a54f-fedbe14305a3" name="变更" comment="" />
+      <created>1684858753967</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684858753967</updated>
+      <workItem from="1684858755461" duration="1553000" />
+      <workItem from="1684922288956" duration="620000" />
+      <workItem from="1684935981591" duration="791000" />
+      <workItem from="1684984070539" duration="26164000" />
+      <workItem from="1685249318123" duration="11639000" />
+      <workItem from="1685327656504" duration="19889000" />
+      <workItem from="1685405115530" duration="21276000" />
+      <workItem from="1685499586355" duration="8596000" />
+      <workItem from="1685668370354" duration="3747000" />
+      <workItem from="1685771890039" duration="4019000" />
+      <workItem from="1685847472099" duration="5315000" />
+      <workItem from="1685867143841" duration="1221000" />
+      <workItem from="1685925343046" duration="15811000" />
+      <workItem from="1686020988878" duration="6546000" />
+      <workItem from="1686276809618" duration="599000" />
+      <workItem from="1686708063907" duration="5786000" />
+      <workItem from="1686793718151" duration="857000" />
+      <workItem from="1686844386186" duration="629000" />
+      <workItem from="1686886827800" duration="10769000" />
+      <workItem from="1686969997162" duration="9603000" />
+      <workItem from="1687084158865" duration="816000" />
+      <workItem from="1687134803614" duration="3093000" />
+      <workItem from="1687231303737" duration="23695000" />
+      <workItem from="1687401104994" duration="5235000" />
+      <workItem from="1687488187832" duration="6801000" />
+      <workItem from="1687571319111" duration="20129000" />
+      <workItem from="1687655625158" duration="13707000" />
+      <workItem from="1687750957225" duration="7454000" />
+      <workItem from="1687831918919" duration="8769000" />
+      <workItem from="1687920182158" duration="9933000" />
+      <workItem from="1688027007294" duration="1205000" />
+      <workItem from="1688114496084" duration="34394000" />
+      <workItem from="1688349591934" duration="21708000" />
+      <workItem from="1688434041584" duration="12217000" />
+      <workItem from="1688517325299" duration="18056000" />
+      <workItem from="1688603546962" duration="23551000" />
+      <workItem from="1688691324813" duration="9161000" />
+      <workItem from="1688776125781" duration="22305000" />
+      <workItem from="1688865110127" duration="27310000" />
+      <workItem from="1688952823054" duration="8913000" />
+      <workItem from="1689040156626" duration="10196000" />
+      <workItem from="1689142856337" duration="8173000" />
+      <workItem from="1689213141300" duration="1551000" />
+      <workItem from="1689233383462" duration="6878000" />
+      <workItem from="1689324379276" duration="1624000" />
+      <workItem from="1689386123816" duration="1385000" />
+      <workItem from="1689470623640" duration="18486000" />
+      <workItem from="1689581633993" duration="12549000" />
+      <workItem from="1689643721125" duration="27272000" />
+      <workItem from="1689731362693" duration="45944000" />
+      <workItem from="1689991348755" duration="14393000" />
+      <workItem from="1690075873677" duration="3118000" />
+      <workItem from="1690540195443" duration="793000" />
+      <workItem from="1690620678705" duration="1322000" />
+      <workItem from="1690679720383" duration="28473000" />
+      <workItem from="1690768696886" duration="27832000" />
+      <workItem from="1690846694104" duration="14039000" />
+      <workItem from="1690891209176" duration="9568000" />
+      <workItem from="1690941636854" duration="7580000" />
+      <workItem from="1690966809190" duration="5094000" />
+      <workItem from="1690993617670" duration="604000" />
+      <workItem from="1691027817075" duration="14711000" />
+      <workItem from="1691064997181" duration="17540000" />
+      <workItem from="1691120839788" duration="32718000" />
+      <workItem from="1691201261681" duration="31628000" />
+      <workItem from="1691251926099" duration="887000" />
+      <workItem from="1691253006914" duration="1448000" />
+      <workItem from="1691284471515" duration="6104000" />
+      <workItem from="1691373407905" duration="27791000" />
+      <workItem from="1691414078529" duration="19132000" />
+      <workItem from="1691458492289" duration="36092000" />
+      <workItem from="1691544563244" duration="3307000" />
+      <workItem from="1691549494886" duration="13991000" />
+      <workItem from="1691629815052" duration="12613000" />
+      <workItem from="1691718174809" duration="7564000" />
+      <workItem from="1691805200844" duration="3872000" />
+      <workItem from="1691905210033" duration="2494000" />
+      <workItem from="1691984112703" duration="614000" />
+      <workItem from="1692073706079" duration="8770000" />
+      <workItem from="1692153406743" duration="6249000" />
+      <workItem from="1692238450940" duration="23758000" />
+      <workItem from="1692323709769" duration="12658000" />
+      <workItem from="1692411462383" duration="11111000" />
+      <workItem from="1692525185727" duration="12912000" />
+      <workItem from="1692583630914" duration="24298000" />
+      <workItem from="1692670539557" duration="17337000" />
+      <workItem from="1692772017596" duration="850000" />
+      <workItem from="1692846120031" duration="1888000" />
+      <workItem from="1692930126380" duration="2431000" />
+      <workItem from="1693102366546" duration="1258000" />
+      <workItem from="1693189350602" duration="11450000" />
+      <workItem from="1693303816090" duration="9416000" />
+      <workItem from="1693387872797" duration="1918000" />
+      <workItem from="1693812094910" duration="29919000" />
+      <workItem from="1693964303797" duration="12311000" />
+      <workItem from="1694051020427" duration="8291000" />
+      <workItem from="1694135152791" duration="5098000" />
+      <workItem from="1694222468435" duration="1860000" />
+      <workItem from="1694315230809" duration="599000" />
+      <workItem from="1694396117359" duration="621000" />
+      <workItem from="1694488916950" duration="599000" />
+      <workItem from="1694589204758" duration="599000" />
+      <workItem from="1694744865000" duration="1198000" />
+      <workItem from="1694790141670" duration="599000" />
+      <workItem from="1694827064103" duration="1805000" />
+      <workItem from="1694920112436" duration="1797000" />
+      <workItem from="1695022573485" duration="599000" />
+      <workItem from="1695088247358" duration="3194000" />
+      <workItem from="1695176572338" duration="4818000" />
+      <workItem from="1695261746223" duration="15559000" />
+      <workItem from="1695348863839" duration="8219000" />
+      <workItem from="1695437208064" duration="16845000" />
+      <workItem from="1695521093071" duration="5503000" />
+      <workItem from="1695609425552" duration="2686000" />
+      <workItem from="1695656162209" duration="650000" />
+      <workItem from="1695696191125" duration="710000" />
+      <workItem from="1695873813575" duration="632000" />
+      <workItem from="1696728536167" duration="14707000" />
+      <workItem from="1696817400630" duration="609000" />
+      <workItem from="1696818342563" duration="4740000" />
+      <workItem from="1696865034900" duration="1939000" />
+      <workItem from="1696923314372" duration="7488000" />
+      <workItem from="1696988651257" duration="18683000" />
+      <workItem from="1697074132820" duration="2457000" />
+      <workItem from="1697162802834" duration="1227000" />
+      <workItem from="1697179542644" duration="21402000" />
+      <workItem from="1697328692300" duration="17951000" />
+      <workItem from="1697422866442" duration="10485000" />
+      <workItem from="1697506176180" duration="96000" />
+      <workItem from="1697506352950" duration="10273000" />
+      <workItem from="1697593656862" duration="17198000" />
+      <workItem from="1697684034336" duration="8376000" />
+      <workItem from="1697767206309" duration="5355000" />
+      <workItem from="1697809892120" duration="5065000" />
+      <workItem from="1697855090502" duration="13131000" />
+      <workItem from="1697946891470" duration="8474000" />
+      <workItem from="1698023268005" duration="2394000" />
+      <workItem from="1698045776225" duration="794000" />
+      <workItem from="1698048107166" duration="4527000" />
+      <workItem from="1698075346962" duration="3574000" />
+      <workItem from="1698080049299" duration="5000" />
+      <workItem from="1698115120732" duration="1516000" />
+      <workItem from="1698197951077" duration="692000" />
+      <workItem from="1698283569294" duration="599000" />
+      <workItem from="1698371150207" duration="3166000" />
+      <workItem from="1698410930368" duration="1257000" />
+      <workItem from="1698417314223" duration="1801000" />
+      <workItem from="1698456579575" duration="2533000" />
+      <workItem from="1698479456863" duration="6041000" />
+      <workItem from="1698540367618" duration="4940000" />
+      <workItem from="1698580709343" duration="642000" />
+      <workItem from="1698593479488" duration="6405000" />
+      <workItem from="1698633288814" duration="2846000" />
+      <workItem from="1698715824398" duration="136000" />
+      <workItem from="1698805034001" duration="5414000" />
+      <workItem from="1698906444408" duration="791000" />
+      <workItem from="1699151457051" duration="628000" />
+      <workItem from="1700115353076" duration="599000" />
+      <workItem from="1702088613432" duration="763000" />
+      <workItem from="1702176272006" duration="755000" />
+      <workItem from="1702430053545" duration="1005000" />
+      <workItem from="1702458596500" duration="187000" />
+      <workItem from="1703330668754" duration="2876000" />
+      <workItem from="1703381898649" duration="3831000" />
+      <workItem from="1703554797422" duration="602000" />
+      <workItem from="1703557231408" duration="5856000" />
+      <workItem from="1703584288235" duration="53000" />
+      <workItem from="1703648449908" duration="4027000" />
+      <workItem from="1703751917776" duration="8350000" />
+      <workItem from="1703769514525" duration="10396000" />
+      <workItem from="1703811182311" duration="5238000" />
+      <workItem from="1703865295860" duration="627000" />
+      <workItem from="1703899628166" duration="5812000" />
+      <workItem from="1703985176766" duration="32000" />
+      <workItem from="1703985224814" duration="2424000" />
+      <workItem from="1703990024018" duration="58000" />
+      <workItem from="1703990145513" duration="9209000" />
+      <workItem from="1704032429796" duration="608000" />
+      <workItem from="1704034147545" duration="3898000" />
+      <workItem from="1704039973133" duration="1988000" />
+      <workItem from="1704072673347" duration="682000" />
+      <workItem from="1704511060976" duration="10972000" />
+      <workItem from="1704593387147" duration="6439000" />
+      <workItem from="1704679289076" duration="28530000" />
+      <workItem from="1704773134749" duration="1254000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
