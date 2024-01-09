@@ -1,0 +1,21 @@
+'use strict';
+
+exports.__esModule = true;
+exports.createNewLookupObject = createNewLookupObject;
+
+var _utils = require('../utils');
+
+/**
+ * Create a new object with "null"-prototype to avoid truthy results on prototype properties.
+ * The resulting object can be used with "object[property]" to check if a property exists
+ * @param {...object} sources a varargs parameter of source objects that will be merged
+ * @returns {object}
+ */
+
+function createNewLookupObject() {
+  for (var _len = arguments.length, sources = Array(_len), _key = 0; _key < _len; _key++) {
+    sources[_key] = arguments[_key];
+  }
+
+  return _utils.extend.apply(undefined, [Object.create(null)].concat(sources));
+}

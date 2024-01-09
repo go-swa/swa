@@ -1,0 +1,68 @@
+@import '@/styles/Color.scss';
+@import '@/styles/basics.scss';
+
+#layoutSider {
+  .box-aside {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: relative;
+
+    .el-menu-vertical {
+      height: calc(100vh - $height-header) !important;
+      visibility: visible;
+      &:not(.el-menu--collapse) {
+        width: $width-aside;
+      }
+    }
+    .menu-total {
+      margin-left: 6px;
+      cursor: pointer;
+      float: left;
+      margin-top: 10px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 30px;
+    }
+    .arrow-double-left:before {
+      content: "\e665";
+    }
+    .arrow-double-right:before {
+      content: "\e666";
+    }
+  }
+
+  :deep(.el-menu) {
+    border-right: 1px;
+
+    &:not(.el-menu--collapse) {
+      width: $width-aside;
+    }
+
+    .el-sub-menu.is-active.is-opened {
+      .el-menu {
+        background: rgba($second-color-bg, 0.3);
+      }
+    }
+
+    .el-menu-item:hover {
+      background-color: $second-color-bg;
+    }
+
+    .el-menu-item.is-active {
+      background-color: $second-color-bg;
+      position: relative;
+
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 2px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+}
