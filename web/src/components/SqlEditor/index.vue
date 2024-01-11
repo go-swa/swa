@@ -1,9 +1,9 @@
 <template>
   <div>
     <textarea
-      ref="mycode"
-      v-model="value"
-      class="codesql"
+        ref="mycode"
+        v-model="value"
+        class="codesql"
     />
   </div>
 </template>
@@ -12,6 +12,7 @@
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/blackboard.css'
 import 'codemirror/addon/hint/show-hint.css'
+
 const CodeMirror = require('codemirror/lib/codemirror')
 require('codemirror/addon/edit/matchbrackets')
 require('codemirror/addon/selection/active-line')
@@ -68,7 +69,7 @@ export default {
       readOnly: this.readOnly,
       theme: theme,
       autofocus: true,
-      extraKeys: { 'Ctrl': 'autocomplete' },
+      extraKeys: {'Ctrl': 'autocomplete'},
       hintOptions: {
         completeSingle: false
       }
@@ -97,7 +98,7 @@ export default {
   font-size: 13px;
 }
 
-.CodeMirror-hints{
+.CodeMirror-hints {
   z-index: 9999 !important;
 }
 </style>

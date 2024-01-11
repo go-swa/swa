@@ -5,14 +5,17 @@ export default {
 </script>
 <template>
   <div style="width: 40px">
-    <el-icon><Bell /></el-icon>
-    <span class="span_msg" v-if="msgCount<999"> {{ msgCount }}</span>
-    <span class="span_msg" v-else>.....</span>
+    <el-icon>
+      <Bell/>
+    </el-icon>
+    <span v-if="msgCount<999" class="span_msg"> {{ msgCount }}</span>
+    <span v-else class="span_msg">.....</span>
   </div>
 </template>
 
 <script setup>
-import { onUnmounted, ref } from 'vue'
+import {onUnmounted, ref} from 'vue'
+
 const msgCount = ref(1)
 const timer = ref(null)
 
@@ -28,14 +31,14 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 
-.span_msg{
-  top:-25px;
-  left:22px;
-  display:block;
-  position:relative;
+.span_msg {
+  top: -25px;
+  left: 22px;
+  display: block;
+  position: relative;
   background: red;
   border-radius: 10px;
-  width:25px;
+  width: 25px;
   font-size: 12px;
 }
 </style>

@@ -1,28 +1,28 @@
 <template>
-  <el-drawer v-model="drawer" title="媒体库" size="650px">
+  <el-drawer v-model="drawer" size="650px" title="媒体库">
     <warning-bar
-      title="点击“文件名/备注”可以编辑文件名或者备注内容。"
+        title="点击“文件名/备注”可以编辑文件名或者备注内容。"
     />
     <div class="gva-btn-list">
       <upload-common
-        v-model:imageCommon="imageCommon"
-        class="upload-btn-media-library"
-        @on-success="open"
+          v-model:imageCommon="imageCommon"
+          class="upload-btn-media-library"
+          @on-success="open"
       />
       <upload-image
-        v-model:imageUrl="imageUrl"
-        :file-size="512"
-        :max-w-h="1080"
-        class="upload-btn-media-library"
-        @on-success="open"
+          v-model:imageUrl="imageUrl"
+          :file-size="512"
+          :max-w-h="1080"
+          class="upload-btn-media-library"
+          @on-success="open"
       />
       <el-form ref="searchForm" :inline="true" :model="search">
         <el-form-item label="">
-          <el-input v-model="search.keyword" class="keyword" placeholder="请输入文件名或备注" />
+          <el-input v-model="search.keyword" class="keyword" placeholder="请输入文件名或备注"/>
         </el-form-item>
 
         <el-form-item>
-          <el-button type="primary" icon="search" @click="open">查询</el-button>
+          <el-button icon="search" type="primary" @click="open">查询</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -30,44 +30,46 @@
       <div v-for="(item,key) in picList" :key="key" class="media-box">
         <div class="header-img-box-list">
           <el-image
-            :key="key"
-            :src="(item.url && item.url.slice(0, 4) !== 'http')?path+item.url:item.url"
-            @click="chooseImg(item.url,target,targetKey)"
+              :key="key"
+              :src="(item.url && item.url.slice(0, 4) !== 'http')?path+item.url:item.url"
+              @click="chooseImg(item.url,target,targetKey)"
           >
             <template #error>
               <div class="header-img-box-list">
                 <el-icon>
-                  <picture />
+                  <picture/>
                 </el-icon>
               </div>
             </template>
           </el-image>
 
         </div>
-        <el-icon @click="delFile(item)"><delete /></el-icon>
+        <el-icon @click="delFile(item)">
+          <delete/>
+        </el-icon>
         <div class="img-title" @click="editFileNameFunc(item)">{{ item.name }}</div>
       </div>
     </div>
     <el-pagination
-      :current-page="page"
-      :page-size="pageSize"
-      :total="total"
-      :style="{'justify-content':'center'}"
-      layout="total, prev, pager, next, jumper"
-      @current-change="handleCurrentChange"
-      @size-change="handleSizeChange"
+        :current-page="page"
+        :page-size="pageSize"
+        :style="{'justify-content':'center'}"
+        :total="total"
+        layout="total, prev, pager, next, jumper"
+        @current-change="handleCurrentChange"
+        @size-change="handleSizeChange"
     />
   </el-drawer>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import {ref} from 'vue'
 import {getFileList, editFileName, deleteFile} from '@/api/swa_file_upload'
 import UploadImage from '@/components/upload/image.vue'
 import UploadCommon from '@/components/upload/common.vue'
-import { ElMessage, ElMessageBox } from 'element-plus'
+import {ElMessage, ElMessageBox} from 'element-plus'
 import WarningBar from '@/components/warningBar/warningBar.vue'
-import { Delete } from '@element-plus/icons-vue'
+import {Delete} from '@element-plus/icons-vue'
 
 const imageUrl = ref('')
 const imageCommon = ref('')
@@ -111,8 +113,8 @@ const chooseImg = (url, target, targetKey) => {
   drawer.value = false
 }
 
-const open = async() => {
-  const res = await getFileList({ page: page.value, pageSize: pageSize.value, ...search.value })
+const open = async () => {
+  const res = await getFileList({page: page.value, pageSize: pageSize.value, ...search.value})
   if (res.code === 0) {
     picList.value = res.data.list
     total.value = res.data.total
@@ -127,14 +129,14 @@ const open = async() => {
  * @param row
  * @returns {Promise<void>}
  */
-const editFileNameFunc = async(row) => {
+const editFileNameFunc = async (row) => {
   ElMessageBox.prompt('请输入文件名或者备注', '编辑', {
     confirmButtonText: '确定',
     cancelButtonText: '取消',
     inputPattern: /\S/,
     inputErrorMessage: '不能为空',
     inputValue: row.name
-  }).then(async({ value }) => {
+  }).then(async ({value}) => {
     row.name = value
     const res = await editFileName(row)
     if (res.code === 0) {
@@ -152,12 +154,12 @@ const editFileNameFunc = async(row) => {
   })
 }
 
-const delFile = async(row) => {
+const delFile = async (row) => {
   ElMessageBox.prompt('确认删除此图片', '删除', {
     confirmButtonText: '确定',
     cancelButtonText: '取消',
     showInput: false,
-  }).then(async({ value }) => {
+  }).then(async ({value}) => {
     row.name = value
     const res = await deleteFile(row)
     if (res.code === 0) {
@@ -175,7 +177,7 @@ const delFile = async(row) => {
   })
 }
 
-defineExpose({ open })
+defineExpose({open})
 </script>
 
 <style lang="scss">
@@ -209,6 +211,7 @@ defineExpose({ open })
       line-height: 120px;
       cursor: pointer;
       overflow: hidden;
+
       .el-image__inner {
         max-width: 120px;
         max-height: 120px;

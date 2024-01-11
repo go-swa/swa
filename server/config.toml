@@ -21,28 +21,28 @@ buffer-time = "3d"
 issuer = "qmPlus"
 
 [captcha]
-key-long= 6
-img-width= 240
-img-height= 80
-open-captcha= 0
-open-captcha-timeout= 3600
+key-long = 6
+img-width = 240
+img-height = 80
+open-captcha = 0
+open-captcha-timeout = 3600
 
 [redis]
-db= 0
-addr= "127.0.0.1=6379"
-password= ""
+db = 0
+addr = "127.0.0.1=6379"
+password = ""
 
 [system]
-env= "release"
-addr= "9003"
-db-type= "mysql"
-oss-type= "local"
-use-multipoint= "false"
-use-redis= "false"
-ip-limit-count= 15000
-ip-limit-time= 3600
-router-prefix= ""
+env = "release"
+addr = "9003"
+db-type = "mysql"
+oss-type = "local"
+use-multipoint = "false"
+use-redis = "false"
+ip-limit-count = 15000
+ip-limit-time = 3600
+router-prefix = ""
 
 [local]
-path= "file_server/upload"
-store-path= "file_server/upload/files"
+path = "file_server/upload"
+store-path = "file_server/upload/files"

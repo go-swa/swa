@@ -3,54 +3,54 @@
     <div class="gva-search-box">
       <el-form ref="searchForm" :inline="true" :model="searchInfo">
         <el-form-item label="路径">
-          <el-input v-model="searchInfo.path" placeholder="路径" />
+          <el-input v-model="searchInfo.path" placeholder="路径"/>
         </el-form-item>
         <el-form-item label="描述">
-          <el-input v-model="searchInfo.description" placeholder="描述" />
+          <el-input v-model="searchInfo.description" placeholder="描述"/>
         </el-form-item>
         <el-form-item label="API组">
-          <el-input v-model="searchInfo.apiGroup" placeholder="api组" />
+          <el-input v-model="searchInfo.apiGroup" placeholder="api组"/>
         </el-form-item>
         <el-form-item label="请求">
           <el-select v-model="searchInfo.method" clearable placeholder="请选择">
             <el-option
-              v-for="item in methodOptions"
-              :key="item.value"
-              :label="`${item.label}(${item.value})`"
-              :value="item.value"
+                v-for="item in methodOptions"
+                :key="item.value"
+                :label="`${item.label}(${item.value})`"
+                :value="item.value"
             />
           </el-select>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" icon="search" @click="onSubmit">查询</el-button>
+          <el-button icon="search" type="primary" @click="onSubmit">查询</el-button>
           <el-button icon="refresh" @click="onReset">重置</el-button>
         </el-form-item>
       </el-form>
     </div>
     <div class="gva-table-box">
       <div class="gva-btn-list">
-        <el-button type="primary" icon="plus" @click="openDialog('addApi')">新增</el-button>
+        <el-button icon="plus" type="primary" @click="openDialog('addApi')">新增</el-button>
         <el-popover v-model="deleteVisible" placement="top" width="160">
           <p>确定要删除吗？</p>
           <div style="text-align: right; margin-top: 8px;">
-            <el-button type="primary" link @click="deleteVisible = false">取消</el-button>
+            <el-button link type="primary" @click="deleteVisible = false">取消</el-button>
             <el-button type="primary" @click="deleteSelectedRow">确定</el-button>
           </div>
           <template #reference>
-            <el-button icon="delete" :disabled="!apis.length" style="margin-left: 10px;" @click="deleteVisible = true">删除</el-button>
+            <el-button :disabled="!apis.length" icon="delete" style="margin-left: 10px;" @click="deleteVisible = true">删除</el-button>
           </template>
         </el-popover>
       </div>
       <el-table :data="tableData" @sort-change="sortChange" @selection-change="handleSelectionChange">
         <el-table-column
-          type="selection"
-          width="55"
+            type="selection"
+            width="55"
         />
-        <el-table-column align="left" label="id" width="80" prop="ID" sortable="custom" />
-        <el-table-column align="left" label="API路径" prop="path" sortable="custom" />
-        <el-table-column align="left" label="API分组" width="180" prop="apiGroup" sortable="custom" />
-        <el-table-column align="left" label="API简介" width="200" prop="description" sortable="custom" />
-        <el-table-column align="left" label="请求" width="160" prop="method" sortable="custom">
+        <el-table-column align="left" label="id" prop="ID" sortable="custom" width="80"/>
+        <el-table-column align="left" label="API路径" prop="path" sortable="custom"/>
+        <el-table-column align="left" label="API分组" prop="apiGroup" sortable="custom" width="180"/>
+        <el-table-column align="left" label="API简介" prop="description" sortable="custom" width="200"/>
+        <el-table-column align="left" label="请求" prop="method" sortable="custom" width="160">
           <template #default="scope">
             <div>{{ scope.row.method }} / {{ methodFilter(scope.row.method) }}</div>
           </template>
@@ -58,46 +58,46 @@
 
         <el-table-column align="left" fixed="right" label="操作" width="160">
           <template #default="scope">
-            <el-button icon="edit" type="primary" link @click="editApiFunc(scope.row)">编辑</el-button>
-            <el-button icon="delete" type="primary" link @click="deleteApiFunc(scope.row)">删除</el-button>
+            <el-button icon="edit" link type="primary" @click="editApiFunc(scope.row)">编辑</el-button>
+            <el-button icon="delete" link type="primary" @click="deleteApiFunc(scope.row)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
       <div class="gva-pagination">
         <el-pagination
-          :current-page="page"
-          :page-size="pageSize"
-          :page-sizes="[10, 30, 50, 100]"
-          :total="total"
-          layout="total, sizes, prev, pager, next, jumper"
-          @current-change="handleCurrentChange"
-          @size-change="handleSizeChange"
+            :current-page="page"
+            :page-size="pageSize"
+            :page-sizes="[10, 30, 50, 100]"
+            :total="total"
+            layout="total, sizes, prev, pager, next, jumper"
+            @current-change="handleCurrentChange"
+            @size-change="handleSizeChange"
         />
       </div>
 
     </div>
 
     <el-dialog v-model="dialogFormVisible" :before-close="closeDialog" :title="dialogTitle">
-      <warning-bar title="新增API，需要在角色管理内配置权限才可使用" />
+      <warning-bar title="新增API，需要在角色管理内配置权限才可使用"/>
       <el-form ref="apiForm" :model="form" :rules="rules" label-width="80px">
         <el-form-item label="路径" prop="path">
-          <el-input v-model="form.path" autocomplete="off" />
+          <el-input v-model="form.path" autocomplete="off"/>
         </el-form-item>
         <el-form-item label="请求" prop="method">
           <el-select v-model="form.method" placeholder="请选择" style="width:100%">
             <el-option
-              v-for="item in methodOptions"
-              :key="item.value"
-              :label="`${item.label}(${item.value})`"
-              :value="item.value"
+                v-for="item in methodOptions"
+                :key="item.value"
+                :label="`${item.label}(${item.value})`"
+                :value="item.value"
             />
           </el-select>
         </el-form-item>
         <el-form-item label="api分组" prop="apiGroup">
-          <el-input v-model="form.apiGroup" autocomplete="off" />
+          <el-input v-model="form.apiGroup" autocomplete="off"/>
         </el-form-item>
         <el-form-item label="api简介" prop="description">
-          <el-input v-model="form.description" autocomplete="off" />
+          <el-input v-model="form.description" autocomplete="off"/>
         </el-form-item>
       </el-form>
       <template #footer>
@@ -125,10 +125,10 @@ import {
   deleteApi,
   deleteApisByIds
 } from '@/api/api'
-import { toSQLLine } from '@/utils/stringFun'
+import {toSQLLine} from '@/utils/stringFun'
 import WarningBar from '@/components/warningBar/warningBar.vue'
-import { ref } from 'vue'
-import { ElMessage, ElMessageBox } from 'element-plus'
+import {ref} from 'vue'
+import {ElMessage, ElMessageBox} from 'element-plus'
 
 const methodFilter = (value) => {
   const target = methodOptions.value.filter(item => item.value === value)[0]
@@ -167,15 +167,15 @@ const methodOptions = ref([
 
 const type = ref('')
 const rules = ref({
-  path: [{ required: true, message: '请输入api路径', trigger: 'blur' }],
+  path: [{required: true, message: '请输入api路径', trigger: 'blur'}],
   apiGroup: [
-    { required: true, message: '请输入组名称', trigger: 'blur' }
+    {required: true, message: '请输入组名称', trigger: 'blur'}
   ],
   method: [
-    { required: true, message: '请选择请求方式', trigger: 'blur' }
+    {required: true, message: '请选择请求方式', trigger: 'blur'}
   ],
   description: [
-    { required: true, message: '请输入api介绍', trigger: 'blur' }
+    {required: true, message: '请输入api介绍', trigger: 'blur'}
   ]
 })
 
@@ -205,7 +205,7 @@ const handleCurrentChange = (val) => {
   getTableData()
 }
 
-const sortChange = ({ prop, order }) => {
+const sortChange = ({prop, order}) => {
   if (prop) {
     if (prop === 'ID') {
       prop = 'id'
@@ -216,8 +216,8 @@ const sortChange = ({ prop, order }) => {
   getTableData()
 }
 
-const getTableData = async() => {
-  const table = await getApiList({ page: page.value, pageSize: pageSize.value, ...searchInfo.value })
+const getTableData = async () => {
+  const table = await getApiList({page: page.value, pageSize: pageSize.value, ...searchInfo.value})
   if (table.code === 0) {
     tableData.value = table.data.list
     total.value = table.data.total
@@ -233,9 +233,9 @@ const handleSelectionChange = (val) => {
 }
 
 const deleteVisible = ref(false)
-const deleteSelectedRow = async() => {
+const deleteSelectedRow = async () => {
   const ids = apis.value.map(item => item.ID)
-  const res = await deleteApisByIds({ ids })
+  const res = await deleteApisByIds({ids})
   if (res.code === 0) {
     ElMessage({
       type: 'success',
@@ -281,89 +281,89 @@ const closeDialog = () => {
   dialogFormVisible.value = false
 }
 
-const editApiFunc = async(row) => {
-  const res = await getApiById({ id: row.ID })
+const editApiFunc = async (row) => {
+  const res = await getApiById({id: row.ID})
   form.value = res.data.api
   openDialog('edit')
 }
 
-const enterDialog = async() => {
+const enterDialog = async () => {
   apiForm.value.validate(async valid => {
     if (valid) {
       switch (type.value) {
-        case 'addApi':
-          {
-            const res = await createApi(form.value)
-            if (res.code === 0) {
-              ElMessage({
-                type: 'success',
-                message: '添加成功',
-                showClose: true
-              })
-            }
-            getTableData()
-            closeDialog()
-          }
-
-          break
-        case 'edit':
-          {
-            const res = await updateApi(form.value)
-            if (res.code === 0) {
-              ElMessage({
-                type: 'success',
-                message: '编辑成功',
-                showClose: true
-              })
-            }
-            getTableData()
-            closeDialog()
-          }
-          break
-        default:
-          {
+        case 'addApi': {
+          const res = await createApi(form.value)
+          if (res.code === 0) {
             ElMessage({
-              type: 'error',
-              message: '未知操作',
+              type: 'success',
+              message: '添加成功',
               showClose: true
             })
           }
+          getTableData()
+          closeDialog()
+        }
+
+          break
+        case 'edit': {
+          const res = await updateApi(form.value)
+          if (res.code === 0) {
+            ElMessage({
+              type: 'success',
+              message: '编辑成功',
+              showClose: true
+            })
+          }
+          getTableData()
+          closeDialog()
+        }
+          break
+        default:
+        {
+          ElMessage({
+            type: 'error',
+            message: '未知操作',
+            showClose: true
+          })
+        }
           break
       }
     }
   })
 }
 
-const deleteApiFunc = async(row) => {
+const deleteApiFunc = async (row) => {
   ElMessageBox.confirm('此操作将永久删除所有角色下该api, 是否继续?', '提示', {
     confirmButtonText: '确定',
     cancelButtonText: '取消',
     type: 'warning'
   })
-    .then(async() => {
-      const res = await deleteApi(row)
-      if (res.code === 0) {
-        ElMessage({
-          type: 'success',
-          message: '删除成功!'
-        })
-        if (tableData.value.length === 1 && page.value > 1) {
-          page.value--
+      .then(async () => {
+        const res = await deleteApi(row)
+        if (res.code === 0) {
+          ElMessage({
+            type: 'success',
+            message: '删除成功!'
+          })
+          if (tableData.value.length === 1 && page.value > 1) {
+            page.value--
+          }
+          getTableData()
         }
-        getTableData()
-      }
-    })
+      })
 }
 
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .button-box {
   padding: 10px 20px;
+
   .el-button {
     float: right;
   }
 }
+
 .warning {
   color: #dc143c;
 }

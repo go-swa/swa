@@ -2,42 +2,42 @@
   <div class="table-responsive">
     <table>
       <thead>
-        <tr v-for="(tr, index) in combineHeads" :key="index">
-          <th v-for="cell in tr" :key="cell.__index" :rowspan="cell.rowspan" :colspan="cell.colspan">
-            <div
+      <tr v-for="(tr, index) in combineHeads" :key="index">
+        <th v-for="cell in tr" :key="cell.__index" :colspan="cell.colspan" :rowspan="cell.rowspan">
+          <div
               :class="{ 'col-corner-bg': cell.isCorner }"
               :style="{ 'min-height': _getMinHeightByRowCount(cell.rowspan) }"
-            >
-              {{ cell.isCorner ? (rowPaths.length + ' x ' + colPaths.length) : cell.value }}
-            </div>
-          </th>
-        </tr>
+          >
+            {{ cell.isCorner ? (rowPaths.length + ' x ' + colPaths.length) : cell.value }}
+          </div>
+        </th>
+      </tr>
       </thead>
       <tbody>
-        <tr v-for="(tr, index) in combineValues" :key="index">
-          <th
+      <tr v-for="(tr, index) in combineValues" :key="index">
+        <th
             v-for="cell in trhead"
             :key="cell.__index"
-            :rowspan="cell.rowspan"
             :colspan="cell.colspan"
-          >
-            <div :style="{ 'min-height': _getMinHeightByRowCount(cell.rowspan) }">
-              {{ cell.value }}
-            </div>
-          </th>
-          <td v-for="cell in tr.data" :key="cell.__index" :rowspan="cell.rowspan" :colspan="cell.colspan">
-            <div :style="{ 'min-height': _getMinHeightByRowCount(cell.rowspan) }">
-              {{ cell.value }}
-            </div>
-          </td>
-        </tr>
+            :rowspan="cell.rowspan"
+        >
+          <div :style="{ 'min-height': _getMinHeightByRowCount(cell.rowspan) }">
+            {{ cell.value }}
+          </div>
+        </th>
+        <td v-for="cell in tr.data" :key="cell.__index" :colspan="cell.colspan" :rowspan="cell.rowspan">
+          <div :style="{ 'min-height': _getMinHeightByRowCount(cell.rowspan) }">
+            {{ cell.value }}
+          </div>
+        </td>
+      </tr>
       </tbody>
     </table>
   </div>
 </template>
 
 <script>
-import { mergeBaseInfo, convertPathToMap, getHeightByCount, SEPARATOR } from '@/utils/visual-chart'
+import {mergeBaseInfo, convertPathToMap, getHeightByCount, SEPARATOR} from '@/utils/visual-chart'
 
 export default {
   name: 'PivotTable',
@@ -71,22 +71,22 @@ export default {
   }),
   computed: {
     watchAllProps() {
-      const { rows, columns, values, data } = this
-      return { rows, columns, values, data }
+      const {rows, columns, values, data} = this
+      return {rows, columns, values, data}
     },
     rowPaths() {
       const _paths = this._combineRowPaths(
-        this.localData,
-        ...this.localRows.map(({ key, values }) => {
-          return { key, values }
-        })
+          this.localData,
+          ...this.localRows.map(({key, values}) => {
+            return {key, values}
+          })
       )
       return _paths
     },
     colPaths() {
-      const keys = this.localColumns.map(({ values }) => values)
+      const keys = this.localColumns.map(({values}) => values)
       if (this.localValues.length) {
-        keys.push(this.localValues.map(({ key }) => key))
+        keys.push(this.localValues.map(({key}) => key))
       }
       const _paths = this._combineColPaths(...keys)
       return _paths
@@ -119,31 +119,31 @@ export default {
             colSpans[rowIndex] = currColSpan
             if (currColSpanVal === 1) {
               row.push(
-                Object.assign(
-                  cellData,
-                  mergeBaseInfo({
-                    __index: `${baseX}-${baseY}`,
-                    x: baseX,
-                    y: baseY,
-                    colspan: compareVal,
-                    path: currPath.filter((item) => !!item),
-                    value: currVal
-                  })
-                )
+                  Object.assign(
+                      cellData,
+                      mergeBaseInfo({
+                        __index: `${baseX}-${baseY}`,
+                        x: baseX,
+                        y: baseY,
+                        colspan: compareVal,
+                        path: currPath.filter((item) => !!item),
+                        value: currVal
+                      })
+                  )
               )
             }
           } else {
             row.push(
-              Object.assign(
-                cellData,
-                mergeBaseInfo({
-                  __index: `${baseX}-${baseY}`,
-                  x: baseX,
-                  y: baseY,
-                  path: currPath.filter((item) => !!item),
-                  value: this.localValues.find(({ key }) => key === currVal).label
-                })
-              )
+                Object.assign(
+                    cellData,
+                    mergeBaseInfo({
+                      __index: `${baseX}-${baseY}`,
+                      x: baseX,
+                      y: baseY,
+                      path: currPath.filter((item) => !!item),
+                      value: this.localValues.find(({key}) => key === currVal).label
+                    })
+                )
             )
           }
         })
@@ -162,7 +162,7 @@ export default {
           isCorner: true
         }))
       }
-      this.localRows.forEach(({ label }, index) => {
+      this.localRows.forEach(({label}, index) => {
         _columns.push(mergeBaseInfo({
           __index: `${this.localColumns.length}-${index}`,
           value: label,
@@ -242,12 +242,12 @@ export default {
     },
     dataValues() {
       const colConditions = convertPathToMap(
-        this.colPaths,
-        this.localColumns.map(({ key }) => key).concat(this.localValues.length ? ['value'] : [])
+          this.colPaths,
+          this.localColumns.map(({key}) => key).concat(this.localValues.length ? ['value'] : [])
       )
       const rowConditions = convertPathToMap(
-        this.rowPaths,
-        this.localRows.map(({ key }) => key)
+          this.rowPaths,
+          this.localRows.map(({key}) => key)
       )
       !colConditions.length && colConditions.push({})
       !rowConditions.length && rowConditions.push({})
@@ -256,28 +256,28 @@ export default {
           const cellData = {}
           const conditions = Object.assign({}, rowCondition, colCondition)
           const _filterConditions = Object.fromEntries(
-            Object.entries(conditions).filter(
-              (item) => item[0] !== 'value'
-            )
+              Object.entries(conditions).filter(
+                  (item) => item[0] !== 'value'
+              )
           )
           const filterData = this._filterData(_filterConditions, this.localData)
           const baseX = this.localColumns.length + +Boolean(this.localValues.length) + rowConditionIndex
           const baseY = this.localRows.length + colConditionIndex
           Object.assign(
-            cellData,
-            mergeBaseInfo({
-              conditions,
-              x: baseX,
-              y: baseY,
-              __index: `${baseX}-${baseY}`
-            })
+              cellData,
+              mergeBaseInfo({
+                conditions,
+                x: baseX,
+                y: baseY,
+                __index: `${baseX}-${baseY}`
+              })
           )
           const isEmptyValues = this.localColumns.length && this.localRows.length && !this.localValues.length
           if (isEmptyValues) {
-            Object.assign(cellData, { value: '' })
+            Object.assign(cellData, {value: ''})
           } else {
-            const _value = this.values.find(({ key }) => key === conditions.value)
-            Object.assign(cellData, { value: _value && _value.key ? this._reduceValue(filterData, _value.key) : '' })
+            const _value = this.values.find(({key}) => key === conditions.value)
+            Object.assign(cellData, {value: _value && _value.key ? this._reduceValue(filterData, _value.key) : ''})
           }
           return cellData
         })
@@ -288,7 +288,9 @@ export default {
       })
     },
     trhead() {
-      return this.tr.head.filter(function(cell) { return !cell.isRowspan })
+      return this.tr.head.filter(function (cell) {
+        return !cell.isRowspan
+      })
     }
   },
   watch: {
@@ -318,16 +320,16 @@ export default {
       this.localData = Object.freeze(this.data)
     },
     setValuesToColAndRow() {
-      const rowKeys = this.localRows.map(({ key }) => key)
-      const columnKeys = this.localColumns.map(({ key }) => key)
+      const rowKeys = this.localRows.map(({key}) => key)
+      const columnKeys = this.localColumns.map(({key}) => key)
       const rowValues = this._findCategory(rowKeys, this.localData)
       const columnValues = this._findCategory(columnKeys, this.localData)
       this.localRows.forEach((row) => {
-        const { key, values } = row
+        const {key, values} = row
         this.$set(row, 'values', values || rowValues[key] || [])
       })
       this.localColumns.forEach((column) => {
-        const { key, values } = column
+        const {key, values} = column
         this.$set(column, 'values', values || columnValues[key] || [])
       })
     },
@@ -347,7 +349,7 @@ export default {
         const _currValue = this.dataValues[i] || {}
         const _row = [...(_currValue.data || [])]
         combineValues.push(
-          Object.assign({}, { head: [..._currRowHeadValue] }, { data: _row })
+            Object.assign({}, {head: [..._currRowHeadValue]}, {data: _row})
         )
       }
       this.combineValues = combineValues
@@ -355,38 +357,38 @@ export default {
     handleCalcData() {
       if (!this.localValues.length) return
       const _rowPaths = this._combineRowPaths(
-        this.localData,
-        ...this.localRows.map(({ key, values }) => {
-          return { key, values }
-        })
+          this.localData,
+          ...this.localRows.map(({key, values}) => {
+            return {key, values}
+          })
       )
-      const _rowKeys = this.localRows.map(({ key }) => key)
+      const _rowKeys = this.localRows.map(({key}) => key)
       const _colPaths = this._combineColPaths(
-        ...this.localColumns.map(({ values }) => values)
+          ...this.localColumns.map(({values}) => values)
       )
-      const _colKeys = this.localColumns.map(({ key }) => key)
+      const _colKeys = this.localColumns.map(({key}) => key)
       const colConditions = convertPathToMap(_colPaths, _colKeys)
       const rowConditions = convertPathToMap(_rowPaths, _rowKeys)
       !colConditions.length && colConditions.push({})
       !rowConditions.length && rowConditions.push({})
       this.calcData = Object.freeze(
-        rowConditions
-          .map((rowCondition, rowConditionIndex) =>
-            colConditions
-              .map((colCondition, colConditionIndex) => {
-                const conditions = Object.assign({}, rowCondition, colCondition)
-                const filterData = this._filterData(conditions, this.localData)
-                const isEmptyCell = this.localRows.length && this.localColumns.length && !this.localValues.length
-                const _values = {}
-                this.values.forEach(({ key }) => {
-                  _values[key] = isEmptyCell ? '' : this._reduceValue(filterData, key)
-                })
-                return Object.assign({}, conditions, _values)
-              })
+          rowConditions
+              .map((rowCondition, rowConditionIndex) =>
+                  colConditions
+                      .map((colCondition, colConditionIndex) => {
+                        const conditions = Object.assign({}, rowCondition, colCondition)
+                        const filterData = this._filterData(conditions, this.localData)
+                        const isEmptyCell = this.localRows.length && this.localColumns.length && !this.localValues.length
+                        const _values = {}
+                        this.values.forEach(({key}) => {
+                          _values[key] = isEmptyCell ? '' : this._reduceValue(filterData, key)
+                        })
+                        return Object.assign({}, conditions, _values)
+                      })
+                      .flat()
+              )
+              .filter((item) => item.length)
               .flat()
-          )
-          .filter((item) => item.length)
-          .flat()
       )
     },
     _combineRowPaths(data, ...arrays) {
@@ -419,7 +421,7 @@ export default {
               }
             })
           })
-          return { key: prev.key + SEPARATOR + curr.key, values: arr }
+          return {key: prev.key + SEPARATOR + curr.key, values: arr}
         }) || {}
         _result = rowPaths.values || []
       }

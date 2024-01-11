@@ -1,0 +1,8 @@
+[single]
+listeners.address = { address = "0.0.0.0:9003" }
+
+[serviceweaver]
+binary = "./swa.exe"
+
+[multi]
+listeners.address = { address = "0.0.0.0:9003" }

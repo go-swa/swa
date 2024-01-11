@@ -10,25 +10,25 @@ export default {
 
 <template>
   <div id="layoutSider">
-    <div class="box-aside" :style="{ background: userStore.sideMode }">
+    <div :style="{ background: userStore.sideMode }" class="box-aside">
       <el-scrollbar>
         <el-menu
-          :collapse="isCollapse"
-          :collapse-transition="false"
-          :default-active="active"
-          :background-color="theme.background"
-          :active-text-color="theme.active"
-          class="el-menu-vertical"
-          unique-opened
-          @select="selectMenuItem"
+            :active-text-color="theme.active"
+            :background-color="theme.background"
+            :collapse="isCollapse"
+            :collapse-transition="false"
+            :default-active="active"
+            class="el-menu-vertical"
+            unique-opened
+            @select="selectMenuItem"
         >
           <template v-for="item in menusAside">
             <aside-component
-              v-if="!item.hidden"
-              :key="item.name"
-              :is-collapse="isCollapse"
-              :router-info="item"
-              :theme="theme"
+                v-if="!item.hidden"
+                :key="item.name"
+                :is-collapse="isCollapse"
+                :router-info="item"
+                :theme="theme"
             />
           </template>
         </el-menu>
@@ -38,18 +38,18 @@ export default {
 </template>
 
 <script setup>
-import { ref, watch, onUnmounted } from 'vue'
-import { storeToRefs } from 'pinia'
-import { useMenuStore, moreToOneArray } from '@/stores/menus'
-import { useUserStore } from '@/pinia/modules/user'
-import { useRouterStore } from '@/pinia/modules/router'
-import { useRoute, useRouter } from 'vue-router'
+import {ref, watch, onUnmounted} from 'vue'
+import {storeToRefs} from 'pinia'
+import {useMenuStore, moreToOneArray} from '@/stores/menus'
+import {useUserStore} from '@/pinia/modules/user'
+import {useRouterStore} from '@/pinia/modules/router'
+import {useRoute, useRouter} from 'vue-router'
 import Icon from '@/view/superAdmin/menu/icon.vue'
 import AsideComponent from '@/components/asideComponent/index.vue'
-import { emitter } from '@/utils/bus'
+import {emitter} from '@/utils/bus'
 
 const menuStore = useMenuStore()
-const { menusAside, menusAsideActive } = storeToRefs(menuStore)
+const {menusAside, menusAsideActive} = storeToRefs(menuStore)
 const routerStore = useRouterStore()
 const route = useRoute()
 const router = useRouter()
@@ -57,11 +57,11 @@ const disposeMenusAside = ref([])
 const userStore = useUserStore()
 
 watch(
-  menusAside,
-  () => {
-    disposeMenusAside.value = moreToOneArray(menusAside.value)
-  },
-  { immediate: true }
+    menusAside,
+    () => {
+      disposeMenusAside.value = moreToOneArray(menusAside.value)
+    },
+    {immediate: true}
 )
 
 const isCollapse = ref(false)
@@ -98,7 +98,7 @@ const active = ref('')
 
 watch(() => route, () => {
   active.value = route.meta.activeName || route.name
-}, { deep: true })
+}, {deep: true})
 
 watch(() => userStore.sideMode, () => {
   getTheme()
@@ -136,7 +136,7 @@ const selectMenuItem = (routeName, _, ele, aaa) => {
   if (routeName.indexOf('http://') > -1 || routeName.indexOf('https://') > -1) {
     window.open(routeName)
   } else {
-    router.push({ name: routeName, query, params })
+    router.push({name: routeName, query, params})
   }
 }
 </script>

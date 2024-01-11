@@ -1,8 +1,8 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import router from '@/router/index'
 import run from '@/core/swa.js'
 import auth from '@/directive/auth'
-import { store } from '@/pinia'
+import {store} from '@/pinia'
 import Nprogress from 'nprogress'
 import '@/permission'
 import './core/swa'
@@ -15,16 +15,16 @@ import 'nprogress/nprogress.css'
 import 'default-passive-events'
 import App from './App.vue'
 
-Nprogress.configure({ showSpinner: false, ease: 'ease', speed: 500 })
+Nprogress.configure({showSpinner: false, ease: 'ease', speed: 500})
 Nprogress.start()
 
 const app = createApp(App)
 app.config.productionTip = false
 
 app
-  .use(run)
-  .use(store)
-  .use(auth)
-  .use(router)
-  .mount('#app')
+    .use(run)
+    .use(store)
+    .use(auth)
+    .use(router)
+    .mount('#app')
 export default app

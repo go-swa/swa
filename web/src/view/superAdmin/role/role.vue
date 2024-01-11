@@ -2,21 +2,21 @@
   <div class="role">
     <div class="gva-table-box">
       <div class="gva-btn-list">
-        <el-button type="primary" icon="plus" @click="addRole(0)">新增角色</el-button>
+        <el-button icon="plus" type="primary" @click="addRole(0)">新增角色</el-button>
       </div>
       <el-table
-        :data="tableData"
-        :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
-        row-key="roleId"
-        style="width: 100%"
+          :data="tableData"
+          :tree-props="{children: 'children', hasChildren: 'hasChildren'}"
+          row-key="roleId"
+          style="width: 100%"
       >
-        <el-table-column label="角色ID" min-width="180" prop="roleId" />
-        <el-table-column align="left" label="角色名称" min-width="180" prop="roleName" />
+        <el-table-column label="角色ID" min-width="180" prop="roleId"/>
+        <el-table-column align="left" label="角色名称" min-width="180" prop="roleName"/>
         <el-table-column align="left" label="操作" width="350">
           <template #default="scope">
-            <el-button icon="setting" type="primary" link @click="openDrawer(scope.row)" >设置权限</el-button>
-            <el-button icon="plus" type="primary" link @click="addRole(scope.row.roleId)" >新增子角色</el-button>
-            <el-button icon="edit" type="primary" link @click="editRole(scope.row)" >编辑</el-button>
+            <el-button icon="setting" link type="primary" @click="openDrawer(scope.row)">设置权限</el-button>
+            <el-button icon="plus" link type="primary" @click="addRole(scope.row.roleId)">新增子角色</el-button>
+            <el-button icon="edit" link type="primary" @click="editRole(scope.row)">编辑</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -26,20 +26,20 @@
       <el-form ref="roleForm" :model="form" :rules="rules" label-width="80px">
         <el-form-item label="父级角色" prop="parentId">
           <el-cascader
-            v-model="form.parentId"
-            style="width:100%"
-            :disabled="dialogType==='add'"
-            :options="RoleOption"
-            :props="{ checkStrictly: true,label:'roleName',value:'roleId',disabled:'disabled',emitPath:false}"
-            :show-all-levels="false"
-            filterable
+              v-model="form.parentId"
+              :disabled="dialogType==='add'"
+              :options="RoleOption"
+              :props="{ checkStrictly: true,label:'roleName',value:'roleId',disabled:'disabled',emitPath:false}"
+              :show-all-levels="false"
+              filterable
+              style="width:100%"
           />
         </el-form-item>
         <el-form-item label="角色ID" prop="roleId">
-          <el-input v-model="form.roleId" :disabled="dialogType==='edit'" autocomplete="off" />
+          <el-input v-model="form.roleId" :disabled="dialogType==='edit'" autocomplete="off"/>
         </el-form-item>
         <el-form-item label="角色姓名" prop="roleName">
-          <el-input v-model="form.roleName" autocomplete="off" />
+          <el-input v-model="form.roleName" autocomplete="off"/>
         </el-form-item>
       </el-form>
       <template #footer>
@@ -50,13 +50,13 @@
       </template>
     </el-dialog>
 
-    <el-drawer v-if="drawer" v-model="drawer" class="auth-drawer" :with-header="false" size="25%" title="角色配置">
+    <el-drawer v-if="drawer" v-model="drawer" :with-header="false" class="auth-drawer" size="25%" title="角色配置">
       <el-tabs :before-leave="autoEnter" type="border-card">
         <el-tab-pane label="角色菜单">
-          <Menus ref="menus" :row="activeRow" @changeRow="changeRow" />
+          <Menus ref="menus" :row="activeRow" @changeRow="changeRow"/>
         </el-tab-pane>
         <el-tab-pane label="角色api">
-          <Apis ref="apis" :row="activeRow" @changeRow="changeRow" />
+          <Apis ref="apis" :row="activeRow" @changeRow="changeRow"/>
         </el-tab-pane>
       </el-tabs>
     </el-drawer>
@@ -77,8 +77,8 @@ import Apis from '@/view/superAdmin/role/components/apis.vue'
 import Datas from '@/view/superAdmin/role/components/datas.vue'
 import WarningBar from '@/components/warningBar/warningBar.vue'
 
-import { ref } from 'vue'
-import { ElMessage, ElMessageBox } from 'element-plus'
+import {ref} from 'vue'
+import {ElMessage, ElMessageBox} from 'element-plus'
 
 const mustUint = (rule, value, callback) => {
   if (!/^[0-9]*[1-9][0-9]*$/.test(value)) {
@@ -109,14 +109,14 @@ const form = ref({
 })
 const rules = ref({
   roleId: [
-    { required: true, message: '请输入角色ID', trigger: 'blur' },
-    { validator: mustUint, trigger: 'blur', message: '必须为正整数' }
+    {required: true, message: '请输入角色ID', trigger: 'blur'},
+    {validator: mustUint, trigger: 'blur', message: '必须为正整数'}
   ],
   roleName: [
-    { required: true, message: '请输入角色名', trigger: 'blur' }
+    {required: true, message: '请输入角色名', trigger: 'blur'}
   ],
   parentId: [
-    { required: true, message: '请选择父角色', trigger: 'blur' },
+    {required: true, message: '请选择父角色', trigger: 'blur'},
   ]
 })
 
@@ -126,8 +126,8 @@ const pageSize = ref(999)
 const tableData = ref([])
 const searchInfo = ref({})
 
-const getTableData = async() => {
-  const table = await getRoleList({ page: page.value, pageSize: pageSize.value, ...searchInfo.value })
+const getTableData = async () => {
+  const table = await getRoleList({page: page.value, pageSize: pageSize.value, ...searchInfo.value})
   console.log('获取角色列表:', table)
   if (table.code === 0) {
     tableData.value = table.data.list
@@ -175,25 +175,25 @@ const deleteAuth = (row) => {
     cancelButtonText: '取消',
     type: 'warning'
   })
-    .then(async() => {
-      const res = await deleteRole({ roleId: row.roleId })
-      if (res.code === 0) {
-        ElMessage({
-          type: 'success',
-          message: '删除成功!'
-        })
-        if (tableData.value.length === 1 && page.value > 1) {
-          page.value--
+      .then(async () => {
+        const res = await deleteRole({roleId: row.roleId})
+        if (res.code === 0) {
+          ElMessage({
+            type: 'success',
+            message: '删除成功!'
+          })
+          if (tableData.value.length === 1 && page.value > 1) {
+            page.value--
+          }
+          await getTableData()
         }
-        await getTableData()
-      }
-    })
-    .catch(() => {
-      ElMessage({
-        type: 'info',
-        message: '已取消删除'
       })
-    })
+      .catch(() => {
+        ElMessage({
+          type: 'info',
+          message: '已取消删除'
+        })
+      })
 }
 const roleForm = ref(null)
 const initForm = () => {
@@ -224,31 +224,29 @@ const enterDialog = () => {
   roleForm.value.validate(async valid => {
     if (valid) {
       switch (dialogType.value) {
-        case 'add':
-          {
-            const res = await createRole(form.value)
-            if (res.code === 0) {
-              ElMessage({
-                type: 'success',
-                message: '添加成功!'
-              })
-              await getTableData()
-              closeDialog()
-            }
+        case 'add': {
+          const res = await createRole(form.value)
+          if (res.code === 0) {
+            ElMessage({
+              type: 'success',
+              message: '添加成功!'
+            })
+            await getTableData()
+            closeDialog()
           }
+        }
           break
-        case 'edit':
-          {
-            const res = await updateRole(form.value)
-            if (res.code === 0) {
-              ElMessage({
-                type: 'success',
-                message: '添加成功!'
-              })
-              await getTableData()
-              closeDialog()
-            }
+        case 'edit': {
+          const res = await updateRole(form.value)
+          if (res.code === 0) {
+            ElMessage({
+              type: 'success',
+              message: '添加成功!'
+            })
+            await getTableData()
+            closeDialog()
           }
+        }
           break
         case 'copy': {
           const data = {
@@ -293,29 +291,29 @@ const setOptions = () => {
 const setRoleOptions = (RoleData, optionsData, disabled) => {
   form.value.roleId = String(form.value.roleId)
   RoleData &&
-        RoleData.forEach(item => {
-          if (item.children && item.children.length) {
-            const option = {
-              roleId: item.roleId,
-              roleName: item.roleName,
-              disabled: disabled || item.roleId === form.value.roleId,
-              children: []
-            }
-            setRoleOptions(
-              item.children,
-              option.children,
-              disabled || item.roleId === form.value.roleId
-            )
-            optionsData.push(option)
-          } else {
-            const option = {
-              roleId: item.roleId,
-              roleName: item.roleName,
-              disabled: disabled || item.roleId === form.value.roleId
-            }
-            optionsData.push(option)
-          }
-        })
+  RoleData.forEach(item => {
+    if (item.children && item.children.length) {
+      const option = {
+        roleId: item.roleId,
+        roleName: item.roleName,
+        disabled: disabled || item.roleId === form.value.roleId,
+        children: []
+      }
+      setRoleOptions(
+          item.children,
+          option.children,
+          disabled || item.roleId === form.value.roleId
+      )
+      optionsData.push(option)
+    } else {
+      const option = {
+        roleId: item.roleId,
+        roleName: item.roleName,
+        disabled: disabled || item.roleId === form.value.roleId
+      }
+      optionsData.push(option)
+    }
+  })
 }
 const addRole = (parentId) => {
   initForm()
@@ -349,12 +347,14 @@ export default {
 .role {
   .el-input-number {
     margin-left: 15px;
+
     span {
       display: none;
     }
   }
 }
-.tree-content{
+
+.tree-content {
   margin-top: 10px;
   height: calc(100vh - 148px);
   overflow: auto;

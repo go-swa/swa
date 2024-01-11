@@ -3,16 +3,16 @@
     <div class="gva-search-box">
       <el-form :inline="true" :model="searchInfo">
         <el-form-item label="请求方法">
-          <el-input v-model="searchInfo.method" placeholder="搜索条件" />
+          <el-input v-model="searchInfo.method" placeholder="搜索条件"/>
         </el-form-item>
         <el-form-item label="请求路径">
-          <el-input v-model="searchInfo.path" placeholder="搜索条件" />
+          <el-input v-model="searchInfo.path" placeholder="搜索条件"/>
         </el-form-item>
         <el-form-item label="结果状态码">
-          <el-input v-model="searchInfo.status" placeholder="搜索条件" />
+          <el-input v-model="searchInfo.status" placeholder="搜索条件"/>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" icon="search" @click="onSubmit">查询</el-button>
+          <el-button icon="search" type="primary" @click="onSubmit">查询</el-button>
           <el-button icon="refresh" @click="onReset">重置</el-button>
         </el-form-item>
       </el-form>
@@ -23,23 +23,23 @@
         <el-popover v-model="deleteVisible" placement="top" width="160">
           <p>确定要删除吗？</p>
           <div style="text-align: right; margin-top: 8px;">
-            <el-button type="primary" link @click="deleteVisible = false">取消</el-button>
+            <el-button link type="primary" @click="deleteVisible = false">取消</el-button>
             <el-button type="primary" @click="deleteSelectedRow">确定</el-button>
           </div>
           <template #reference>
-            <el-button icon="delete" style="margin-left: 10px;" :disabled="!multipleSelection.length" @click="deleteVisible = true">删除</el-button>
+            <el-button :disabled="!multipleSelection.length" icon="delete" style="margin-left: 10px;" @click="deleteVisible = true">删除</el-button>
           </template>
         </el-popover>
       </div>
       <el-table
-        ref="multipleTable"
-        :data="tableData"
-        style="width: 100%"
-        tooltip-effect="dark"
-        row-key="ID"
-        @selection-change="handleSelectionChange"
+          ref="multipleTable"
+          :data="tableData"
+          row-key="ID"
+          style="width: 100%"
+          tooltip-effect="dark"
+          @selection-change="handleSelectionChange"
       >
-        <el-table-column align="left" type="selection" width="55" />
+        <el-table-column align="left" type="selection" width="55"/>
         <el-table-column align="left" label="操作人" width="140">
           <template #default="scope">
             <div>{{ scope.row.user.userName }}({{ scope.row.user.nickName }})</div>
@@ -55,9 +55,9 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column align="left" label="请求IP" prop="ip" width="120" />
-        <el-table-column align="left" label="请求方法" prop="method" width="120" />
-        <el-table-column align="left" label="请求路径" prop="path" />
+        <el-table-column align="left" label="请求IP" prop="ip" width="120"/>
+        <el-table-column align="left" label="请求方法" prop="method" width="120"/>
+        <el-table-column align="left" label="请求路径" prop="path"/>
         <el-table-column align="left" label="请求" prop="path" width="80">
           <template #default="scope">
             <div>
@@ -66,7 +66,9 @@
                   <pre>{{ fmtBody(scope.row.body) }}</pre>
                 </div>
                 <template #reference>
-                  <el-icon style="cursor: pointer;"><Memo /></el-icon>
+                  <el-icon style="cursor: pointer;">
+                    <Memo/>
+                  </el-icon>
                 </template>
               </el-popover>
 
@@ -82,7 +84,9 @@
                   <pre>{{ fmtBody(scope.row.resp) }}</pre>
                 </div>
                 <template #reference>
-                  <el-icon style="cursor: pointer;"><Memo /></el-icon>
+                  <el-icon style="cursor: pointer;">
+                    <Memo/>
+                  </el-icon>
                 </template>
               </el-popover>
               <span v-else>无</span>
@@ -94,11 +98,11 @@
             <el-popover v-model="scope.row.visible" placement="top" width="160">
               <p>确定要删除吗？</p>
               <div style="text-align: right; margin-top: 8px;">
-                <el-button type="primary" link @click="scope.row.visible = false">取消</el-button>
+                <el-button link type="primary" @click="scope.row.visible = false">取消</el-button>
                 <el-button type="primary" @click="deleteSwaRecordFunc(scope.row)">确定</el-button>
               </div>
               <template #reference>
-                <el-button icon="delete" type="primary" link @click="scope.row.visible = true">删除</el-button>
+                <el-button icon="delete" link type="primary" @click="scope.row.visible = true">删除</el-button>
               </template>
             </el-popover>
           </template>
@@ -106,13 +110,13 @@
       </el-table>
       <div class="gva-pagination">
         <el-pagination
-          :current-page="page"
-          :page-size="pageSize"
-          :page-sizes="[10, 30, 50, 100]"
-          :total="total"
-          layout="total, sizes, prev, pager, next, jumper"
-          @current-change="handleCurrentChange"
-          @size-change="handleSizeChange"
+            :current-page="page"
+            :page-size="pageSize"
+            :page-sizes="[10, 30, 50, 100]"
+            :total="total"
+            layout="total, sizes, prev, pager, next, jumper"
+            @current-change="handleCurrentChange"
+            @size-change="handleSizeChange"
         />
       </div>
     </div>
@@ -125,10 +129,10 @@ import {
   getSwaRecordList,
   deleteSwaRecordByIds
 } from '@/api/swaRecord'
-import { formatDate } from '@/utils/format'
-import { ref } from 'vue'
-import { ElMessage } from 'element-plus'
-import { Memo } from '@element-plus/icons-vue'
+import {formatDate} from '@/utils/format'
+import {ref} from 'vue'
+import {ElMessage} from 'element-plus'
+import {Memo} from '@element-plus/icons-vue'
 
 const page = ref(1)
 const total = ref(0)
@@ -157,7 +161,7 @@ const handleCurrentChange = (val) => {
   getTableData()
 }
 
-const getTableData = async() => {
+const getTableData = async () => {
   const table = await getSwaRecordList({
     page: page.value,
     pageSize: pageSize.value,
@@ -178,13 +182,13 @@ const multipleSelection = ref([])
 const handleSelectionChange = (val) => {
   multipleSelection.value = val
 }
-const deleteSelectedRow = async() => {
+const deleteSelectedRow = async () => {
   const ids = []
   multipleSelection.value &&
-        multipleSelection.value.forEach(item => {
-          ids.push(item.ID)
-        })
-  const res = await deleteSwaRecordByIds({ ids })
+  multipleSelection.value.forEach(item => {
+    ids.push(item.ID)
+  })
+  const res = await deleteSwaRecordByIds({ids})
   if (res.code === 0) {
     ElMessage({
       type: 'success',
@@ -197,9 +201,9 @@ const deleteSelectedRow = async() => {
     getTableData()
   }
 }
-const deleteSwaRecordFunc = async(row) => {
+const deleteSwaRecordFunc = async (row) => {
   row.visible = false
-  const res = await deleteSwaRecord({ ID: row.ID })
+  const res = await deleteSwaRecord({ID: row.ID})
   if (res.code === 0) {
     ElMessage({
       type: 'success',
@@ -232,9 +236,11 @@ export default {
 .table-expand {
   padding-left: 60px;
   font-size: 0;
+
   label {
     width: 90px;
     color: #99a9bf;
+
     .el-form-item {
       margin-right: 0;
       margin-bottom: 0;
@@ -242,6 +248,7 @@ export default {
     }
   }
 }
+
 .popover-box {
   background: #112435;
   color: #f08047;
@@ -249,6 +256,7 @@ export default {
   width: 420px;
   overflow: auto;
 }
+
 .popover-box::-webkit-scrollbar {
   display: none; /* Chrome Safari */
 }

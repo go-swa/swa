@@ -21,19 +21,20 @@ export default {
 </script>
 
 <script setup>
-import { getSubRoles, setSubRoles } from '@/api/swaRole'
+import {getSubRoles, setSubRoles} from '@/api/swaRole'
 import WarningBar from '@/components/warningBar/warningBar.vue'
-import { ref } from 'vue'
-import { ElMessage } from 'element-plus'
+import {ref} from 'vue'
+import {ElMessage} from 'element-plus'
+
 const props = defineProps({
   row: {
-    default: function() {
+    default: function () {
       return {}
     },
     type: Object
   },
   role: {
-    default: function() {
+    default: function () {
       return []
     },
     type: Array
@@ -55,7 +56,7 @@ const roundRole = (roleData) => {
 }
 
 const subRoles = ref([])
-const init = async() => {
+const init = async () => {
   roundRole(props.role)
   console.log('配置资源', props.role)
   console.log('配置资源row', props.row.roleId)
@@ -97,11 +98,11 @@ const getChildrenId = (row, arrBox) => {
     getChildrenId(item, arrBox)
   })
 }
-const authDataEnter = async() => {
+const authDataEnter = async () => {
   const res = await setSubRoles(props.row)
   console.log('设置用户资源权限：', props.row)
   if (res.code === 0) {
-    ElMessage({ type: 'success', message: '资源设置成功' })
+    ElMessage({type: 'success', message: '资源设置成功'})
   }
 }
 

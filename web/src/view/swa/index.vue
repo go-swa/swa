@@ -3,23 +3,23 @@
     <div class="common-layout">
       <el-container class="layout-base">
         <el-header class="layout-top">
-          <LayoutHeader />
+          <LayoutHeader/>
         </el-header>
 
         <el-container class="layout-main">
           <el-aside class="layout-aside">
-            <LayoutSider />
+            <LayoutSider/>
           </el-aside>
 
           <el-container class="right-main">
             <el-header class="layout-history">
-              <LayoutHistory />
+              <LayoutHistory/>
             </el-header>
 
             <Transition name="swa">
               <el-main class="box-main">
                 <div class="x-page">
-                  <router-view class="box-routerView" />
+                  <router-view class="box-routerView"/>
                 </div>
               </el-main>
             </Transition>

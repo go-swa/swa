@@ -1,33 +1,33 @@
 <template>
   <div>
     <div class="clearfix sticky-button">
-      <el-input v-model="filterText" class="fitler" placeholder="筛选" />
+      <el-input v-model="filterText" class="fitler" placeholder="筛选"/>
       <el-button class="fl-right" type="primary" @click="relation">确 定</el-button>
     </div>
     <div class="tree-content">
       <el-tree
-        ref="menuTree"
-        :data="menuTreeData"
-        :default-checked-keys="menuTreeIds"
-        :props="menuDefaultProps"
-        default-expand-all
-        highlight-current
-        node-key="ID"
-        show-checkbox
-        :filter-node-method="filterNode"
-        @check="nodeChange"
+          ref="menuTree"
+          :data="menuTreeData"
+          :default-checked-keys="menuTreeIds"
+          :filter-node-method="filterNode"
+          :props="menuDefaultProps"
+          default-expand-all
+          highlight-current
+          node-key="ID"
+          show-checkbox
+          @check="nodeChange"
       >
         <template #default="{ node , data }">
           <span class="custom-tree-node">
             <span>{{ node.label }}</span>
             <span>
               <el-button
-                type="primary"
-                link
+                  :disabled="!node.checked"
+                  :style="{color:row.defaultRouter === data.name?'#E6A23C':'#85ce61'}"
 
-                :style="{color:row.defaultRouter === data.name?'#E6A23C':'#85ce61'}"
-                :disabled="!node.checked"
-                @click="() => setDefault(data)"
+                  link
+                  type="primary"
+                  @click="() => setDefault(data)"
               >
                 {{ row.defaultRouter === data.name?"首页":"设为首页" }}
               </el-button>
@@ -37,16 +37,16 @@
         </template>
       </el-tree>
     </div>
-    <el-dialog v-model="btnVisible" title="分配按钮" destroy-on-close>
+    <el-dialog v-model="btnVisible" destroy-on-close title="分配按钮">
       <el-table
-        ref="btnTableRef"
-        :data="btnData"
-        row-key="ID"
-        @selection-change="handleSelectionChange"
+          ref="btnTableRef"
+          :data="btnData"
+          row-key="ID"
+          @selection-change="handleSelectionChange"
       >
-        <el-table-column type="selection" width="55" />
-        <el-table-column label="按钮名称" prop="name" />
-        <el-table-column label="按钮备注" prop="desc" />
+        <el-table-column type="selection" width="55"/>
+        <el-table-column label="按钮名称" prop="name"/>
+        <el-table-column label="按钮备注" prop="desc"/>
       </el-table>
       <template #footer>
         <div class="dialog-footer">
@@ -59,18 +59,18 @@
 </template>
 
 <script setup>
-import { getBaseMenuTree, getMenuRole } from '@/api/menu'
+import {getBaseMenuTree, getMenuRole} from '@/api/menu'
 import {
   setRoleMenus,
   updateRole
 } from '@/api/swaRole'
-import { getRoleBtnApi, setRoleBtnApi } from '@/api/roleBtn'
-import { nextTick, ref, watch } from 'vue'
-import { ElMessage } from 'element-plus'
+import {getRoleBtnApi, setRoleBtnApi} from '@/api/roleBtn'
+import {nextTick, ref, watch} from 'vue'
+import {ElMessage} from 'element-plus'
 
 const props = defineProps({
   row: {
-    default: function() {
+    default: function () {
       return {}
     },
     type: Object
@@ -84,17 +84,17 @@ const menuTreeIds = ref([])
 const needConfirm = ref(false)
 const menuDefaultProps = ref({
   children: 'children',
-  label: function(data) {
+  label: function (data) {
     return data.meta.title
   }
 })
 
-const init = async() => {
+const init = async () => {
   const res = await getBaseMenuTree()
   console.log('获取所有菜单树:', res)
   menuTreeData.value = res.data.menus
   console.log('获取角色ID:', props.row)
-  const res1 = await getMenuRole({ roleId: props.row.roleId })
+  const res1 = await getMenuRole({roleId: props.row.roleId})
   console.log('获取角色菜单:', res1)
   const menus = res1.data.menus
   const arr = []
@@ -108,10 +108,10 @@ const init = async() => {
 
 init()
 
-const setDefault = async(data) => {
-  const res = await updateRole({ roleId: props.row.roleId, RoleName: props.row.roleName, parentId: props.row.parentId, defaultRouter: data.name })
+const setDefault = async (data) => {
+  const res = await updateRole({roleId: props.row.roleId, RoleName: props.row.roleName, parentId: props.row.parentId, defaultRouter: data.name})
   if (res.code === 0) {
-    ElMessage({ type: 'success', message: '设置成功' })
+    ElMessage({type: 'success', message: '设置成功'})
     emit('changeRow', 'defaultRouter', res.data.role.defaultRouter)
   }
 }
@@ -122,7 +122,7 @@ const enterAndNext = () => {
   relation()
 }
 const menuTree = ref(null)
-const relation = async() => {
+const relation = async () => {
   const checkArr = menuTree.value.getCheckedNodes(false, true)
   const res = await setRoleMenus({
     menus: checkArr,
@@ -136,7 +136,7 @@ const relation = async() => {
   }
 }
 
-defineExpose({ enterAndNext, needConfirm })
+defineExpose({enterAndNext, needConfirm})
 
 const btnVisible = ref(false)
 
@@ -144,9 +144,9 @@ const btnData = ref([])
 const multipleSelection = ref([])
 const btnTableRef = ref()
 let menuID = ''
-const OpenBtn = async(data) => {
+const OpenBtn = async (data) => {
   menuID = data.ID
-  const res = await getRoleBtnApi({ menuID: menuID, roleId: props.row.roleId })
+  const res = await getRoleBtnApi({menuID: menuID, roleId: props.row.roleId})
   if (res.code === 0) {
     openDialog(data)
     await nextTick()
@@ -174,7 +174,7 @@ const openDialog = (data) => {
 const closeDialog = () => {
   btnVisible.value = false
 }
-const enterDialog = async() => {
+const enterDialog = async () => {
   const selected = multipleSelection.value.map(item => item.ID)
   const res = await setRoleBtnApi({
     menuID,
@@ -182,7 +182,7 @@ const enterDialog = async() => {
     roleId: props.row.roleId
   })
   if (res.code === 0) {
-    ElMessage({ type: 'success', message: '设置成功' })
+    ElMessage({type: 'success', message: '设置成功'})
     btnVisible.value = false
   }
 }
@@ -207,8 +207,9 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/styles/button.scss";
-.custom-tree-node{
-  span+span{
+
+.custom-tree-node {
+  span + span {
     margin-left: 12px;
   }
 }

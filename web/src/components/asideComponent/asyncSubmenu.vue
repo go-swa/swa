@@ -3,18 +3,18 @@
     <template #title>
       <div v-if="!isCollapse" class="gva-subMenu">
         <el-icon v-if="routerInfo.meta.icon">
-          <component :is="routerInfo.meta.icon" />
+          <component :is="routerInfo.meta.icon"/>
         </el-icon>
         <span>{{ routerInfo.meta.title }}</span>
       </div>
       <template v-else>
         <el-icon v-if="routerInfo.meta.icon">
-          <component :is="routerInfo.meta.icon" />
+          <component :is="routerInfo.meta.icon"/>
         </el-icon>
         <span>{{ routerInfo.meta.title }}</span>
       </template>
     </template>
-    <slot />
+    <slot/>
   </el-sub-menu>
 </template>
 
@@ -25,22 +25,23 @@ export default {
 </script>
 
 <script setup>
-import { ref, watch } from 'vue'
+import {ref, watch} from 'vue'
+
 const props = defineProps({
   routerInfo: {
-    default: function() {
+    default: function () {
       return null
     },
     type: Object
   },
   isCollapse: {
-    default: function() {
+    default: function () {
       return false
     },
     type: Boolean
   },
   theme: {
-    default: function() {
+    default: function () {
       return {}
     },
     type: Object
@@ -60,29 +61,31 @@ watch(() => props.theme, () => {
 </script>
 
 <style lang="scss" scoped>
-.el-sub-menu{
-  ::v-deep(.el-sub-menu__title){
-      padding: 6px;
-      color: v-bind(normalText);
+.el-sub-menu {
+  ::v-deep(.el-sub-menu__title) {
+    padding: 6px;
+    color: v-bind(normalText);
   }
 }
 
-  .is-active:not(.is-opened){
-  ::v-deep(.el-sub-menu__title) .gva-subMenu{
-      flex:1;
-      height: 100%;
-      line-height: 44px;
-      background: v-bind(activeBackground) !important;
-      border-radius: 4px;
-      box-shadow: 0 0 2px 1px v-bind(activeBackground) !important;
-      i{
-        color: v-bind(activeText);
-      }
-      span{
-        color: v-bind(activeText);
-      }
+.is-active:not(.is-opened) {
+  ::v-deep(.el-sub-menu__title) .gva-subMenu {
+    flex: 1;
+    height: 100%;
+    line-height: 44px;
+    background: v-bind(activeBackground) !important;
+    border-radius: 4px;
+    box-shadow: 0 0 2px 1px v-bind(activeBackground) !important;
+
+    i {
+      color: v-bind(activeText);
+    }
+
+    span {
+      color: v-bind(activeText);
     }
   }
+}
 
 .gva-subMenu {
   padding-left: 4px;

@@ -4,14 +4,14 @@
       访问趋势
     </div>
     <div
-      ref="echart"
-      class="dashboard-line"
+        ref="echart"
+        class="dashboard-line"
     />
   </div>
 </template>
 <script setup>
 import * as echarts from 'echarts'
-import { nextTick, onMounted, onUnmounted, ref, shallowRef } from 'vue'
+import {nextTick, onMounted, onUnmounted, ref, shallowRef} from 'vue'
 
 var dataAxis = []
 for (var i = 1; i < 13; i++) {
@@ -99,7 +99,7 @@ const setOptions = () => {
   })
 }
 
-onMounted(async() => {
+onMounted(async () => {
   await nextTick()
   initChart()
 })
@@ -119,6 +119,7 @@ onUnmounted(() => {
     height: 360px;
     width: 100%;
   }
+
   .dashboard-line-title {
     font-weight: 600;
     margin-bottom: 12px;

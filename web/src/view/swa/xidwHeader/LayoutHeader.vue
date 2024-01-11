@@ -7,15 +7,15 @@ export default {
   <div id="layoutHeader">
     <div class="box-header">
       <div class="logo-name">
-        <img src="@/assets/swa-48.png" class="img-size" alt="">
+        <img alt="" class="img-size" src="@/assets/swa-48.png">
         <span class="name">{{ CONFIG.appName }}</span>
       </div>
       <div class="top-menus">
         <el-menu
-          mode="horizontal"
-          :default-active="activeIndex"
-          :active-text-color="theme.active"
-          :ellipsis="false"
+            :active-text-color="theme.active"
+            :default-active="activeIndex"
+            :ellipsis="false"
+            mode="horizontal"
         >
           <template v-for="(item, idx) in menusTop">
             <template v-if="idx < menusTop.length-1">
@@ -29,19 +29,22 @@ export default {
         <div class="person-operation">
           <div class="search-component">
             <div class="user-box">
-              <UserMessage />
+              <UserMessage/>
             </div>
             <div class="user-box">
-              <Screenfull class="search-icon" :style="{cursor:'pointer'}" />
+              <Screenfull :style="{cursor:'pointer'}" class="search-icon"/>
             </div>
             <div class="user-box">
-              <ColorSetting />
+              <ColorSetting/>
             </div>
           </div>
           <div class="username">
             <el-dropdown>
               <div class="panel">
-                <span>你好: {{ userStore.userInfo.nickName }}</span> <el-icon><arrow-down /></el-icon>
+                <span>你好: {{ userStore.userInfo.nickName }}</span>
+                <el-icon>
+                  <arrow-down/>
+                </el-icon>
               </div>
               <template #dropdown>
                 <el-dropdown-menu>
@@ -59,18 +62,19 @@ export default {
 </template>
 <script setup>
 import CONFIG from '@/core/config'
-import { storeToRefs } from 'pinia'
-import { useMenuStore } from '@/stores/menus'
-import { useRouter } from 'vue-router'
+import {storeToRefs} from 'pinia'
+import {useMenuStore} from '@/stores/menus'
+import {useRouter} from 'vue-router'
 import Screenfull from '@/components/screenfull/index.vue'
 import ColorSetting from '@/components/setting/index.vue'
 import UserMessage from '@/components/userMessage/userMessage.vue'
 
-import { ref } from 'vue'
+import {ref} from 'vue'
 
 const menuStore = useMenuStore()
-import { useUserStore } from '@/pinia/modules/user'
-import { ArrowDown } from '@element-plus/icons-vue'
+import {useUserStore} from '@/pinia/modules/user'
+import {ArrowDown} from '@element-plus/icons-vue'
+
 const userStore = useUserStore()
 
 const activeIndex = ref('0')
@@ -110,7 +114,7 @@ const {
 } = storeToRefs(menuStore)
 
 const toPerson = () => {
-  router.push({ name: 'person' })
+  router.push({name: 'person'})
 }
 
 </script>

@@ -1,13 +1,12 @@
-
 <template>
   <div>
     <el-upload
-      :action="`${path}/fileUpload/upload`"
-      :headers="{ 'x-token': userStore.token }"
-      :show-file-list="false"
-      :on-success="handleImageSuccess"
-      :before-upload="beforeImageUpload"
-      :multiple="false"
+        :action="`${path}/fileUpload/upload`"
+        :before-upload="beforeImageUpload"
+        :headers="{ 'x-token': userStore.token }"
+        :multiple="false"
+        :on-success="handleImageSuccess"
+        :show-file-list="false"
     >
       <el-button type="primary">压缩上传</el-button>
     </el-upload>
@@ -16,9 +15,9 @@
 
 <script setup>
 import ImageCompress from '@/utils/image'
-import { ref } from 'vue'
-import { ElMessage } from 'element-plus'
-import { useUserStore } from '@/pinia/modules/user'
+import {ref} from 'vue'
+import {ElMessage} from 'element-plus'
+import {useUserStore} from '@/pinia/modules/user'
 
 const emit = defineEmits(['on-success'])
 const props = defineProps({
@@ -57,7 +56,7 @@ const beforeImageUpload = (file) => {
 }
 
 const handleImageSuccess = (res) => {
-  const { data } = res
+  const {data} = res
   if (data.file) {
     emit('on-success', data.file.url)
   }
@@ -69,9 +68,7 @@ const handleImageSuccess = (res) => {
 
 export default {
   name: 'UploadImage',
-  methods: {
-
-  }
+  methods: {}
 }
 </script>
 
@@ -84,9 +81,11 @@ export default {
   position: relative;
   overflow: hidden;
 }
+
 .image-uploader {
   border-color: #409eff;
 }
+
 .image-uploader-icon {
   font-size: 28px;
   color: #8c939d;
@@ -95,6 +94,7 @@ export default {
   line-height: 178px;
   text-align: center;
 }
+
 .image {
   width: 178px;
   height: 178px;

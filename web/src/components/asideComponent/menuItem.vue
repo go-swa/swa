@@ -2,20 +2,20 @@
   <el-menu-item :index="routerInfo.name">
     <template v-if="isCollapse">
       <el-tooltip
-        class="box-item"
-        effect="light"
-        :content="routerInfo.meta.title"
-        placement="right"
+          :content="routerInfo.meta.title"
+          class="box-item"
+          effect="light"
+          placement="right"
       >
         <el-icon v-if="routerInfo.meta.icon">
-          <component :is="routerInfo.meta.icon" />
+          <component :is="routerInfo.meta.icon"/>
         </el-icon>
       </el-tooltip>
     </template>
     <template v-else>
       <div class="gva-menu-item">
         <el-icon v-if="routerInfo.meta.icon">
-          <component :is="routerInfo.meta.icon" />
+          <component :is="routerInfo.meta.icon"/>
         </el-icon>
         <span class="gva-menu-item-title">{{ routerInfo.meta.title }}</span>
       </div>
@@ -30,23 +30,23 @@ export default {
 </script>
 
 <script setup>
-import { ref, watch } from 'vue'
+import {ref, watch} from 'vue'
 
 const props = defineProps({
   routerInfo: {
-    default: function() {
+    default: function () {
       return null
     },
     type: Object
   },
   isCollapse: {
-    default: function() {
+    default: function () {
       return false
     },
     type: Boolean
   },
   theme: {
-    default: function() {
+    default: function () {
       return {}
     },
     type: Object
@@ -88,11 +88,13 @@ watch(() => props.theme, () => {
     flex: 1;
   }
 }
+
 .el-menu--collapse {
   .el-menu-item.is-active {
     color: v-bind(activeBackground);
   }
 }
+
 .el-menu-item {
   color: v-bind(normalText);
 }
@@ -100,8 +102,7 @@ watch(() => props.theme, () => {
 .el-menu-item.is-active {
   .gva-menu-item {
     background: v-bind(activeBackground) !important;
-    border-radius: 2px;
-    box-shadow: 0 0 0px 0px v-bind(activeBackground) !important;
+
     i {
       color: v-bind(activeText);
     }

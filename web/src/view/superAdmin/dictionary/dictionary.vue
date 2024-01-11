@@ -3,65 +3,67 @@
     <div class="gva-search-box">
       <el-form :inline="true" :model="searchInfo">
         <el-form-item label="字典中文名">
-          <el-input v-model="searchInfo.name" placeholder="搜索条件" />
+          <el-input v-model="searchInfo.name" placeholder="搜索条件"/>
         </el-form-item>
         <el-form-item label="字典英文名">
-          <el-input v-model="searchInfo.type" placeholder="搜索条件" />
+          <el-input v-model="searchInfo.type" placeholder="搜索条件"/>
         </el-form-item>
         <el-form-item label="状态" prop="status">
           <el-select v-model="searchInfo.status" clear placeholder="请选择">
-            <el-option key="true" label="是" value="true" />
-            <el-option key="false" label="否" value="false" />
+            <el-option key="true" label="是" value="true"/>
+            <el-option key="false" label="否" value="false"/>
           </el-select>
         </el-form-item>
         <el-form-item label="描述">
-          <el-input v-model="searchInfo.detail" placeholder="搜索条件" />
+          <el-input v-model="searchInfo.detail" placeholder="搜索条件"/>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" icon="search" @click="onSubmit">查询</el-button>
+          <el-button icon="search" type="primary" @click="onSubmit">查询</el-button>
           <el-button icon="refresh" @click="onReset">重置</el-button>
         </el-form-item>
       </el-form>
     </div>
     <div class="x-table-box">
       <div class="x-btn-list">
-        <el-button type="primary" icon="plus" @click="openDialog">新增</el-button>
+        <el-button icon="plus" type="primary" @click="openDialog">新增</el-button>
       </div>
       <el-table
-        ref="multipleTable"
-        :data="tableData"
-        style="width: 100%"
-        tooltip-effect="dark"
-        row-key="ID"
+          ref="multipleTable"
+          :data="tableData"
+          row-key="ID"
+          style="width: 100%"
+          tooltip-effect="dark"
       >
-        <el-table-column type="selection" width="55" />
+        <el-table-column type="selection" width="55"/>
         <el-table-column align="left" label="日期" width="180">
           <template #default="scope">{{
             formatDate(scope.row.CreatedAt)
-          }}</template>
+            }}
+          </template>
         </el-table-column>
 
-        <el-table-column align="left" label="字典中文名" prop="name" width="160" />
-        <el-table-column align="left" label="字典英文名" prop="type" width="120" />
+        <el-table-column align="left" label="字典中文名" prop="name" width="160"/>
+        <el-table-column align="left" label="字典英文名" prop="type" width="120"/>
         <el-table-column align="left" label="状态" prop="status" width="120">
           <template #default="scope">{{
             formatBoolean(scope.row.status)
-          }}</template>
+            }}
+          </template>
         </el-table-column>
 
-        <el-table-column align="left" label="描述" prop="detail" />
+        <el-table-column align="left" label="描述" prop="detail"/>
         <el-table-column align="left" label="按钮组" width="210">
           <template #default="scope">
-            <el-button icon="document" type="primary" link @click="toDetail(scope.row)">详情</el-button>
-            <el-button icon="edit" type="primary" link @click="updateSwaDictFunc(scope.row)">变更</el-button>
+            <el-button icon="document" link type="primary" @click="toDetail(scope.row)">详情</el-button>
+            <el-button icon="edit" link type="primary" @click="updateSwaDictFunc(scope.row)">变更</el-button>
             <el-popover v-model="scope.row.visible" placement="top" width="160">
               <p>确定要删除吗？</p>
               <div style="text-align: right; margin-top: 8px">
-                <el-button type="primary" link @click="scope.row.visible = false">取消</el-button>
+                <el-button link type="primary" @click="scope.row.visible = false">取消</el-button>
                 <el-button type="primary" @click="deleteSwaDictFunc(scope.row)">确定</el-button>
               </div>
               <template #reference>
-                <el-button type="primary" link icon="delete" style="margin-left: 10px" @click="scope.row.visible = true">删除</el-button>
+                <el-button icon="delete" link style="margin-left: 10px" type="primary" @click="scope.row.visible = true">删除</el-button>
               </template>
             </el-popover>
           </template>
@@ -70,34 +72,34 @@
 
       <div class="gva-pagination">
         <el-pagination
-          :current-page="page"
-          :page-size="pageSize"
-          :page-sizes="[10, 30, 50, 100]"
-          :total="total"
-          layout="total, sizes, prev, pager, next, jumper"
-          @current-change="handleCurrentChange"
-          @size-change="handleSizeChange"
+            :current-page="page"
+            :page-size="pageSize"
+            :page-sizes="[10, 30, 50, 100]"
+            :total="total"
+            layout="total, sizes, prev, pager, next, jumper"
+            @current-change="handleCurrentChange"
+            @size-change="handleSizeChange"
         />
       </div>
     </div>
     <el-dialog v-model="dialogFormVisible" :before-close="closeDialog" title="弹窗操作">
       <el-form
-        ref="dialogForm"
-        :model="formData"
-        :rules="rules"
-        label-width="110px"
+          ref="dialogForm"
+          :model="formData"
+          :rules="rules"
+          label-width="110px"
       >
         <el-form-item label="字典名（中）" prop="name">
-          <el-input v-model="formData.name" placeholder="请输入字典名（中）" clearable :style="{ width: '100%' }" />
+          <el-input v-model="formData.name" :style="{ width: '100%' }" clearable placeholder="请输入字典名（中）"/>
         </el-form-item>
         <el-form-item label="字典名（英）" prop="type">
-          <el-input v-model="formData.type" placeholder="请输入字典名（英）" clearable :style="{ width: '100%' }" />
+          <el-input v-model="formData.type" :style="{ width: '100%' }" clearable placeholder="请输入字典名（英）"/>
         </el-form-item>
         <el-form-item label="状态" prop="status" required>
-          <el-switch v-model="formData.status" active-text="开启" inactive-text="停用" />
+          <el-switch v-model="formData.status" active-text="开启" inactive-text="停用"/>
         </el-form-item>
         <el-form-item label="描述" prop="detail">
-          <el-input v-model="formData.detail" placeholder="请输入描述" clearable :style="{ width: '100%' }" />
+          <el-input v-model="formData.detail" :style="{ width: '100%' }" clearable placeholder="请输入描述"/>
         </el-form-item>
       </el-form>
       <template #footer>
@@ -125,10 +127,10 @@ import {
   getSwaDictList,
 } from '@/api/swaDict'
 import WarningBar from '@/components/warningBar/warningBar.vue'
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { ElMessage } from 'element-plus'
-import { formatBoolean, formatDate } from '@/utils/format'
+import {ref} from 'vue'
+import {useRouter} from 'vue-router'
+import {ElMessage} from 'element-plus'
+import {formatBoolean, formatDate} from '@/utils/format'
 
 const router = useRouter()
 
@@ -191,7 +193,7 @@ const handleCurrentChange = (val) => {
   getTableData()
 }
 
-const getTableData = async() => {
+const getTableData = async () => {
   const table = await getSwaDictList({
     page: page.value,
     pageSize: pageSize.value,
@@ -218,9 +220,9 @@ const toDetail = (row) => {
 
 const dialogFormVisible = ref(false)
 const type = ref('')
-const updateSwaDictFunc = async(row) => {
+const updateSwaDictFunc = async (row) => {
   console.log('字典变更：', row)
-  const res = await findSwaDict({ ID: row.ID, status: row.status })
+  const res = await findSwaDict({ID: row.ID, status: row.status})
   console.log('字典变更结果：', res)
   type.value = 'update'
   if (res.code === 0) {
@@ -237,9 +239,9 @@ const closeDialog = () => {
     detail: null,
   }
 }
-const deleteSwaDictFunc = async(row) => {
+const deleteSwaDictFunc = async (row) => {
   row.visible = false
-  const res = await deleteSwaDict({ ID: row.ID })
+  const res = await deleteSwaDict({ID: row.ID})
   if (res.code === 0) {
     ElMessage({
       type: 'success',
@@ -253,8 +255,8 @@ const deleteSwaDictFunc = async(row) => {
 }
 
 const dialogForm = ref(null)
-const enterDialog = async() => {
-  dialogForm.value.validate(async(valid) => {
+const enterDialog = async () => {
+  dialogForm.value.validate(async (valid) => {
     if (!valid) return
     let res
     console.log('字典详情：', formData.value)

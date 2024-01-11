@@ -1,9 +1,14 @@
 ﻿# go微服务管理平台SWA (Service Weaver Admin)
 
 #### 介绍
+
 ```
-基于Google Service Weaver微服务架构的管理平台 (go语言+vue)，该架构天生微服务，单体编码,不需编写和调试微服务之间接口,
-自动微服务拆分部署。适合快速定制开发。基于本平台的数据中台即将开源，敬请期待。
+基于Google公司Service Weaver微服务架构的开发平台 (go语言+vue)。
+该架构天生微服务，单体编码,不需编写和调试微服务之间接口,
+自动微服务拆分部署。适合快速定制开发商用软件。基于本平台的数据中台即将开源，敬请期待。
+
+开源地址1:https://github.com/go-swa/swa
+开源地址2:https://gitee.com/go-swa/swa
 
 技术交流,软件服务,联系方式:
  微信号：xidwauthor 
@@ -12,7 +17,9 @@
 
 基于go-swa的数据中台(数据仓库+数据治理+数据服务)即将开源,敬请期待.
 ```
+
 #### 软件架构
+
 ```
 Service Weaver是Google开源的一个编程框架(programming framework) ，用于编写、部署和管理用Go开发的分布式应用程序。
 
@@ -29,7 +36,9 @@ Google开源的Service Weaver本就是为解决微服务架构在实践中出现
 
 3.以原子方式升级变更应用，彻底杜绝应用的不同版本间的交互。
 ```
+
 #### 安装教程
+
 ```
 1.  后端安装依赖（开发环境：golang+VSC)：
     cd swa-master/server
@@ -45,18 +54,24 @@ Google开源的Service Weaver本就是为解决微服务架构在实践中出现
 
 5.  更多安装使用说明,参见server和web文件夹下的readme文件
 ```
+
 #### 使用说明
+
 ```
 1.  后端运行：
     cd swa-master/server
     weaver single deploy weaver.toml
     启动微服务时如下：
 ```
+
 ![img.png](img.png)
+
 ```
     查看微服务运行状态：
 ```
-![img_1.png](./img_1.png)
+
+![img_3.png](img_3.png)
+
 ```
 2.  前端运行：
     cd swa-master/web
@@ -64,21 +79,14 @@ Google开源的Service Weaver本就是为解决微服务架构在实践中出现
     登录用户及密码：admin/123456
     正常启动后，结果如下：
 ```
+
 ![img_2.png](img_2.png)
 
 #### 参与贡献
+
 ```
 1.  Fork 本仓库
 2.  新建 Feat_xxx 分支
 3.  提交代码
 4.  新建 Pull Request
-```
-#### 特技
-```
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
 ```

@@ -5,12 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d26d81d-4c4c-48c3-a54f-fedbe14305a3" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/swa-master.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../img_3.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../server/file_server/upload/files/417d0e7e-fd8d-4d70-85fc-79cc6e4c1368.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../server/frontend/mid_record.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/编译与安装.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/img_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/img_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/img_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/img_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/img_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/img_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/img_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/img_9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/swa版本v4.1.15.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/快速开始.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/编译运行.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/项目介绍.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/api/swaDictail.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/api/swaRecord.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/assets/swa-log.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/config.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/file_server/upload/files/e74b006f-cff7-43db-a69a-9ed50da38436.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/file_server/upload/files/logo.png" beforeDir="false" />
@@ -67,6 +88,7 @@
       <change beforePath="$PROJECT_DIR$/../server/utils/clamis.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/utils/clamis.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/utils/request/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/utils/request/common.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/utils/verify.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/utils/verify.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web.rar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/authority.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/swaRole.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/api/authorityBtn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/roleBtn.js" afterDir="false" />
@@ -378,7 +400,8 @@
       <workItem from="1704511060976" duration="10972000" />
       <workItem from="1704593387147" duration="6439000" />
       <workItem from="1704679289076" duration="28530000" />
-      <workItem from="1704773134749" duration="1254000" />
+      <workItem from="1704773134749" duration="3275000" />
+      <workItem from="1704857795647" duration="890000" />
     </task>
     <servers />
   </component>
